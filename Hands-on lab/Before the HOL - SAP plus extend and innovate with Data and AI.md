@@ -1,52 +1,4 @@
-![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/main/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
-
-<div class="MCWHeader1">
-SAP plus extend and innovate with Data and AI
-</div>
-
-<div class="MCWHeader2">
-Before the hands-on lab setup guide
-</div>
-
-<div class="MCWHeader3">
-June 2023
-</div>
-
-
-Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
-
-Microsoft may have patents, patent applications, trademarks, copyrights, or other intellectual property rights covering subject matter in this document. Except as expressly provided in any written license agreement from Microsoft, the furnishing of this document does not give you any license to these patents, trademarks, copyrights, or other intellectual property.
-
-The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
-
-© 2023 Microsoft Corporation. All rights reserved.
-
-Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
-
-**Contents**
-
-- [SAP plus extend and innovate with Data and AI before the hands-on lab setup guide](#sap-plus-extend-and-innovate-with-data-and-ai-before-the-hands-on-lab-setup-guide)
-  - [Requirements](#requirements)
-  - [Before the hands-on lab](#before-the-hands-on-lab)
-    - [Task 1: Obtain the desired Azure Subscription ID value](#task-1-obtain-the-desired-azure-subscription-id-value)
-    - [Task 2: Create an SAP Cloud Appliance](#task-2-create-an-sap-cloud-appliance)
-    - [Task 3: Deploy the Azure Resources](#task-3-deploy-the-azure-resources)
-    - [Task 4: Prepare sales data in SAP](#task-4-prepare-sales-data-in-sap)
-    - [Task 5: Prepare the business partner service in SAP](#task-5-prepare-the-business-partner-service-in-sap)
-    - [Task 6: Prepare payment data in Cosmos DB](#task-6-prepare-payment-data-in-cosmos-db)
-      - [Step 1: Create linked services in Azure Synapse Analytics](#step-1-create-linked-services-in-azure-synapse-analytics)
-      - [Step 2: Create source and sink integration datasets](#step-2-create-source-and-sink-integration-datasets)
-      - [Step 3: Create pipeline to ingest payment data into Cosmos DB](#step-3-create-pipeline-to-ingest-payment-data-into-cosmos-db)
-
 # SAP plus extend and innovate with Data and AI before the hands-on lab setup guide
-
-## Requirements
-
-1. Azure Subscription with Owner role
-
-2. Internet browser such as [Edge](https://www.microsoft.com/edge) or [Chrome](https://www.google.com/chrome/downloads/)
-
-3. [Postman](https://www.postman.com/downloads/)
 
 ## Before the hands-on lab
 
@@ -54,53 +6,57 @@ Duration: 3 - 4 hours
 
 ### Task 1: Obtain the desired Azure Subscription ID value
 
-1. Using an internet browser, log into the [Azure Portal](https://portal.azure.com).
+1. Log into the [Azure Portal](https://portal.azure.com).
 
 2. In the top toolbar, search for and select **Subscriptions**.
 
-    ![The Azure portal displays with Subscriptions entered in the search box and the Subscriptions item selected from the search results.](media/azure_portal_subscriptions_search.png "Search for Azure Subscriptions")
+    ![The Azure portal displays with Subscriptions entered in the search box and the Subscriptions item selected from the search results.](media/subscription.png "Search for Azure Subscriptions")
 
 3. On the **Subscriptions** screen, locate the desired Azure Subscription to deploy lab resources and copy the **Subscription ID** value. Save this value in a text editor for later use.
 
-    ![The Subscriptions screen displays with the Subscription ID value copied from a list of subscriptions.](media/azure_portal_copy_subscription_id.png "Azure Subscriptions")
+    ![The Subscriptions screen displays with the Subscription ID value copied from a list of subscriptions.](media/subscriptions(1).png "Azure Subscriptions")
 
 ### Task 2: Create an SAP Cloud Appliance
 
 1. Using an internet browser, open the [SAP Cloud Appliance Library](https://cal.sap.com/) website.
 
-2. Select the **Log On** button in the header of the website.
+1. Select the **Log On** button in the header of the website.
 
     ![A portion of the SAP Cloud Appliance Library site displays with the Log On button highlighted.](media/sapcal_logon_button.png "SAP Cloud Appliance Library Log On")
 
-3. Either register for a new account or log in with your existing credentials.
+1. Register for a new account using the credentials provided on the **Environment** details page.
 
-4. On the SAP Cloud Appliance Library **Appliance Templates** screen, search for and locate the **SAP S/4HANA 2021, Fully-Activated Appliance** item, and select the **Create Appliance** button in the search results.
+1. For activating the account, open **[Outlook](https://outlook.office365.com/mail/inbox/id/AAQkADljM2VkMzEwLTI2ZmUtNDlmNC1iYjA5LTBmNzlkYTY5NzJmYgAQABkSpmAaulhIiEXU2F3Yr90%3D)** on the same browser, and log in using the same credentials which you have used for registering, you will recieve an email from **SAP ID Service**, open that email, and select **Click here to activate your account**.
 
-    ![The Appliance Templates screen displays with SAP S/4Hana 2021, Fully-Activated Appliance entered in the search box, and the Create Appliance button highlighted in the search results listing.](media/locate_sap_appliance_create_instance_button.png "Create SAP S4/HANA instance")
+1. On the **Terms and Conditions** screen, read the conditions of the 30-day trial license, and select the **I Accept** button to continue.
 
-5. On the **Terms and Conditions** screen, read the conditions of the 30-day trial license, and select the **I Accept** button to continue.
+1. On the SAP Cloud Appliance Library from the left navigation pane select **Appliance Templates (1)** screen, search for and locate the **SAP S/4HANA 2023, Fully-Activated Appliance (2)** item, and select the **Create Appliance** button in the search results.
 
-6. On the **Basic Mode: Create Appliance - Account Details** screen, enter the following values, then select the **Authorize** button:
+    ![The Appliance Templates screen displays with SAP S/4Hana 2023, Fully-Activated Appliance entered in the search box, and the Create Appliance button highlighted in the search results listing.](media/allappliance.png "Create SAP S4/HANA instance")
+
+1. On the **Terms and Conditions** screen, read the conditions of the 30-day trial license, and select the **I Accept** button to continue.
+
+1. On the **Basic Mode: Create Appliance - Account Details** screen, enter the following values, then select the **Authorize (6)** button:
 
     | Field | Value |
     |-------|-------|
-    | Name | MCW SAP plus extend and innovate |
-    | Description | SAP instance for the Microsoft Cloud Workshop |
-    | Cloud Provider | Select **Microsoft Azure** |
-    | Subscription ID | Paste the **Subscription ID** value from Task 1 |
-    | Authorization Type | Select **Standard Authorization** |
+    | Name | **SAP plus extend and innovate (1)** |
+    | Description | **SAP instance for the Microsoft Cloud Workshop (2)** |
+    | Cloud Provider | Select **Microsoft Azure (3)** |
+    | Subscription ID | Paste the **Subscription ID (4)** value from Task 1 |
+    | Authorization Type | Select **Standard Authorization (5)** |
 
-    ![The Basic Mode: Create Instance Account Details screen displays with the form filled with the preceding values. The Authorize button is highlighted.](media/sap_createinstance_account_details.png "SAP Create Instance")
+    ![The Basic Mode: Create Instance Account Details screen displays with the form filled with the preceding values. The Authorize button is highlighted.](media/sap-plus.png "SAP Create Instance")
 
-7. When prompted, authenticate to Azure. If prompted, select to **Consent on behalf of your organization** and select **Accept**.
+1. When prompted, authenticate to Azure. If prompted, select to **Consent on behalf of your organization** and select **Accept**.
 
     ![A Permissions requested modal dialog displays with the Consent on behalf of your organization checkbox checked and the Accept button highlighted.](media/sapcal_consent_modal.png "SAP Cloud Appliance Library Permissions Requested")
 
-8. Returning to the **Basic Mode: Create Appliance** screen fill the **Appliance Details** form as follows and select **Create**:
+1. Returning to the **Basic Mode: Create Appliance** screen fill the **Appliance Details** form as follows and select **Create**:
 
     | Field | Value |
     |-------|-------|
-    | Name  | MCW SAP |
+    | Name  | SAP |
     | Region | Select the nearest location |
     | Password | Choose a strong password |
     | Retype Password | Enter the chosen password |
@@ -109,15 +65,15 @@ Duration: 3 - 4 hours
 
     >**Note**: If difficulty arises using the **Basic** mode, an alternative is to use **Authorization with Application Type** using a [service principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-9. On the **Private Key** modal, select to **Store** the private key in the SAP Cloud Appliance Library. Check the **Encrypt the private key with a password** and enter a password. Type the password once more in the **Retype Password** textbox. Select the **Download** button to download the encrypted key.
+1. On the **Private Key** modal, select to **Store** the private key in the SAP Cloud Appliance Library. Check the **Encrypt the private key with a password** and enter a password. Type the password once more in the **Retype Password** textbox. Select the **Download** button to download the encrypted key.
 
     ![The Private Key dialog displays with the password fields filled in and the Store and Download buttons highlighted.](media/sapcal_privatekey.png "Private Key dialog")
 
-10. The deployment  will take approximately 90 minutes. The status will update on the Instances screen. Once complete, the status will indicate **Active**.
+1. The deployment  will take approximately 90 minutes. The status will update on the Instances screen. Once complete, the status will indicate **Active**.
 
-    ![The MCW SAP instance displays with a status of Active.](media/sapcal_activeinstance.png "SAP CAL Instance listing")
+    ![The MCW SAP instance displays with a status of Active.](media/active.png "SAP CAL Instance listing")
 
-### Task 3: Deploy the Azure Resources
+<!-- ### Task 3: Deploy the Azure Resources
 
 This lab utilizes Terraform Infrastructure as Code to deploy the necessary Azure resources.
 
@@ -161,15 +117,15 @@ This lab utilizes Terraform Infrastructure as Code to deploy the necessary Azure
     terraform apply
     ```
 
-8. Close the Cloud Shell panel if desired.
+8. Close the Cloud Shell panel if desired. -->
 
-### Task 4: Prepare sales data in SAP
+### Task 3: Prepare sales data in SAP
 
 This task demonstrates creating a sales view in SAP and exposing it as an OData service for consumption by external services.
 
-1. On the SAP Cloud Appliance Library Instances page, select the **Connect** button on the **MCW SAP** row.
+1. On the SAP Cloud Appliance Library Instances page, select the **Connect** button on the **SAP** row.
 
-    ![The SAP CAL instances listing displays with the Connect button highlighted next to the MCW SAP item.](media/sapcal_instancerowconnect.png "Connect to SAP Instance")
+    ![The SAP CAL instances listing displays with the Connect button highlighted next to the MCW SAP item.](media/connect.png "Connect to SAP Instance")
 
 2. On the **Connect to the instance** dialog, select the **Connect** link on the RDP row. This will download an RDP file.
 
@@ -187,13 +143,17 @@ This task demonstrates creating a sales view in SAP and exposing it as an OData 
 
     ![SAP Dev Tools for Eclipse icon.](media/sapvm_eclipseicon.png "SAP Dev Tools for Eclipse icon")
 
+    >**Note:** If you see a dialog box for the secure storage indicates Password hint required, select **No**.
+
+    ![SAP Dev Tools for Eclipse icon.](media/securestorage.png "SAP Dev Tools for Eclipse icon")
+
 6. In the **Select a directory as workspace** dialog, keep the default value and select **Launch**. Launching will take a few moments, please be patient.
 
     >**Note**: You may see a dialog for the workspace that indicates an older workspace, if this is the case, accept the current workspace instead of creating a new one.
 
     ![The Select a directory as workspace dialog displays with the Launch button highlighted.](media/sapvm_hanastudioworkspace_prompt.png "Select a directory as workspace dialog")
 
-7. Change the perspective to development by expanding the **Window** menu, **Perspective**, **Open Perspective**, then selecting the **SAP HANA Development** item.
+7. Change the perspective to development by expanding the **Window (1)** menu, **Perspective (2)**, **Open Perspective (3)**, then selecting the **SAP HANA Development (4)** item.
 
     ![HANA Studio displays with the Window, Perspective, Open Perspective menu items expanded and the SAP HANA Development item is selected.](media/sapvm_changeperspective.png "Change to development perspective")
 
