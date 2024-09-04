@@ -165,11 +165,11 @@ This task demonstrates creating a sales view in SAP and exposing it as an OData 
 
     ![A logon dialog displays with the Password text box and OK button highlighted.](media/sapvm_logins4h_ext.png "Logon dialog")
 
-10. Expand the **File** menu, then **New** and select the **Other** item.
+10. Expand the **File (1)** menu, then **New (2)** and select the **Other (3)** item.
 
     ![The File and New menus are expanded with the Other item selected.](media/sapvm_file_new_other.png "Create new file")
 
-11. In the **Select a wizard** dialog, search for `Data Definition`. Select the **Data Definition** item beneath the **ABAP / Core Data Services** folders. Select **Next**.
+11. In the **Select a wizard** dialog, search for `Data Definition`. Select the **Data Definition (1)** item beneath the **ABAP / Core Data Services (2)** folders. Select **Next (3)**.
 
     ![The Select a wizard dialog displays with Data Definition entered in the search box and the Data Definition item selected from the search results. The Next button is highlighted.](media/sapvm_newdatadefinition.png "New Data Definition")
 
@@ -178,8 +178,8 @@ This task demonstrates creating a sales view in SAP and exposing it as an OData 
     | Field | Value |
     |-------|-------|
     | Project | Retain the default **S4H_100_s4h_ext_en**. |
-    | Package | Enter `$TMP`. |
-    | Name | Enter `ZBD_ISalesDocument_E`. |
+    | Package | Enter `$TMP` |
+    | Name | Enter `ZBD_ISalesDocument_E` |
     | Description | Enter `ZBD_ISalesDocument_E` |
 
     ![The New Data Definition dialog displays populated with the preceding values.](media/sapvm_datadefinitionform.png "New Data Definition dialog")
@@ -245,7 +245,7 @@ This task demonstrates creating a sales view in SAP and exposing it as an OData 
 
     ![The ZBD_ISALESDOCUMENT_E view displays a context menu with the activate item selected.](media/sapvm_activatezbd_isalesdocument_e.png "Activate the ZBD_ISALESDOCUMENT_E view")
 
-15. Right-click in the whitespace of the **ZBD_ISALESDOCUMENT_E** view once more, this time select **Open With** and choose **Data Preview**. This will display the raw data of the view. After reviewing the data, you can close this preview.
+15. Right-click in the whitespace of the **ZBD_ISALESDOCUMENT_E** view once more, this time select **Open With (1)** and choose **Data Preview (2)**. This will display the raw data of the view. After reviewing the data, you can close this preview.
 
     ![The ZBD_ISALESDOCUMENT_E view displays a context menu with the Open With and Data Preview items selected.](media/sapvm_preview_menuitem_zbd_isalesdocument_e.png "Preview ZBD_ISALESDOCUMENT_E view")
 
@@ -285,8 +285,8 @@ This task demonstrates creating a sales view in SAP and exposing it as an OData 
 
     | Field | Value |
     |-------|-------|
-    | System Alias | Enter `Local`. |
-    | Technical Service Name | Enter `ZBD_*`. |
+    | System Alias | Enter `Local` |
+    | Technical Service Name | Enter `ZBD_*` |
 
     ![The filter form displays populated with the preceding values.](media/sapvm_sapgui_svcfilterform.png "Filter form")
 
@@ -314,7 +314,7 @@ This task demonstrates creating a sales view in SAP and exposing it as an OData 
 
     ![The ICF Nodes pane displays with the SAP Gateway Client button highlighted on the toolbar menu.](media/sapvm_sapgui_icfnodessapgatewayclientbutton.png "ICF Nodes SAP Gateway Client")
 
-30. On the **SAP Gateway Client** window, select the **Execute** button from the toolbar menu. This tests the OData service. Verify in the **HTTP Response** pane that the status code indicates **200**.
+30. On the **SAP Gateway Client** window, select the **Execute** button from the toolbar menu. This tests the OData service, check the **Remember My Decision** checkbox and select **Allow**. Verify in the **HTTP Response** pane that the status code indicates **200**.
 
     ![The SAP Gateway Client window displays with the Execute button highlighted on the toolbar menu and the HTTP Response status code indicating 200.](media/sapvm_sapgui_sapgatewayclientexecution.png "SAP Gateway Client")
 
@@ -322,7 +322,7 @@ This task demonstrates creating a sales view in SAP and exposing it as an OData 
 
     ![The SAP Gateway window displays with the EntitySets button highlighted.](media/sapvm_sapgui_sapgatewaycliententitysetsbutton.png "EntitySets")
 
-32. On the **EntitySets** dialog, double-click the **ZBD_I_Salesdocument_E** item.
+32. On the **EntitySets** dialog, double-click the **ZBD_I_Salesdocument_E** item, check the **Remember My Decision** checkbox and select **Allow**.
 
     ![The Entity Sets dialog displays with teh ZBD_I_Salesdocument_E item highlighted.](media/sapvm_sapgui_entitysetsdialog.png "EntitySets dialog")
 
@@ -348,12 +348,12 @@ A service is available that allows for the update of a Business Partner record. 
 
     ![A portion of the Activate and Maintain Services toolbar displays with the Add service button highlighted.](media/sapvm_sapgui_maintsvcs_addservicebutton.png "Add Service")
 
-3. Populate the **Add Selected Services** filter form as follows, and press <kbd>Enter</kbd>.
+3. Populate the **Add Selected Services** filter form as follows, and press <kbd>Enter</kbd>. Close the **Information** pop-up.
 
     | Field | Value |
     |-------|-------|
-    | System Alias | Enter `Local`. |
-    | Technical Service Name | Enter `*GWSAMPLE*`. |
+    | System Alias | Enter `Local` |
+    | Technical Service Name | Enter `*GWSAMPLE*` |
 
     ![The filter pane displays with the preceding values populated.](media/sapui_addsvcfilter_gwsample.png "Add Service Filter Pane")
 
@@ -399,13 +399,13 @@ A service is available that allows for the update of a Business Partner record. 
 
     ![The SAP GUI Security dialog displays with the URL value highlighted.](media/sapvm_sapgui_sapguisecuritydialog_gwsample.png "Service endpoint")
 
-15. Next, obtain the IP Address for the MCWSAP-SAP1 virtual machine. In the [Azure Portal](https://portal.azure.com), enter `MCWSAP-SAP1` in the search box located in the top toolbar and select the **MCWSAP-SAP1** virtual machine from the filtered list of resources.
+15. Next, obtain the IP Address for the MCWSAP-SAP1 virtual machine. In the [Azure Portal](https://portal.azure.com), enter `SAP-SAP1` (1) in the search box located in the top toolbar and select the **SAP-SAP1 (2)** virtual machine from the filtered list of resources.
 
-    ![The Azure Portal toolbar search box displays with MCWSAP-SAP1 text and the MCWSAP-SAP1 virtual machine resource selected.](media/ap_searchmcwsapsap1_vm.png "Search for VM")
+    ![The Azure Portal toolbar search box displays with MCWSAP-SAP1 text and the MCWSAP-SAP1 virtual machine resource selected.](media/virtualmachine.png "Search for VM")
 
-16. On the MCWSAP-SAP1 virtual machine Overview screen, copy the IP address and record it for future use.
+16. On the **SAP-SAP1** virtual machine Overview screen, copy the IP address and record it for future use.
 
-    ![The MCWSAP-SAP1 Virtual machine screen displays with the Public IP address highlighted.](media/ap_mcwsapsap1vm_ip.png "MCWSAP-SAP1 Virtual Machine Overview")
+    ![The MCWSAP-SAP1 Virtual machine screen displays with the Public IP address highlighted.](media/sappublicip.png "MCWSAP-SAP1 Virtual Machine Overview")
 
     >**Note**: This IP address can change, it does not have a static IP. Please obtain the current IP address.
 
@@ -413,35 +413,30 @@ A service is available that allows for the update of a Business Partner record. 
 
     ![The Postman interface displays with the Import button highlighted.](media/pm_importcollection.png "Import Collection")
 
-18. On the Import dialog, select the **Link** tab, then enter the following URL and select **Continue**.
+18. On the Import dialog, then enter the following URL.
 
     ```text
-    https://raw.githubusercontent.com/microsoft/MCW-SAP-plus-extend-and-innovate-with-data-and-ai/main/Hands-on%20lab/Resources/postman/SAP%20MCW.postman_collection.json
+    https://raw.githubusercontent.com/CloudLabsAI-Azure/SAP-plus-extend-and-innovate-with-Data-and-AI/MS-Innovation/Hands-on%20lab/Resources/postman/SAP%20MCW.postman_collection.json
     ```
 
-    ![The Import dialog displays with the Link tab highlighted and the above URL entered above the Continue button.](media/pm_importlink.png "Import Collection via Link")
 
-19. On the next screen, select **Import**.
-
-    ![The Import dialog shows the collection to be imported. The Import button is highlighted.](media/pm_importcollection2.png "Import Collection")
-
-20. In the Postman Collections list, select the **SAP MCW** collection. Select the **Variables** tab and enter the MCWSAP-SAP1 IP address in the **INITIAL VALUE** and **CURRENT VALUE** column. Select **Save** on the collection.
+19. In the Postman Collections list, select the **SAP MCW** collection. Select the **Variables** tab and enter the MCWSAP-SAP1 IP address in the **INITIAL VALUE** and **CURRENT VALUE** column. Select **Save** on the collection.
 
     ![The Variables for the SAP MCW collection displays with the initial value and current value set to an IP address. The Save button is highlighted.](media/pm_enteripvarsincollection.png "Set ip-address values")
 
-21. Expand the SAP MCW Collection and select the **GET Company** request. Select **Send**. Notice how the CompanyName is currently **Office Line Prag**.
+20. Expand the SAP MCW Collection and select the **GET Company** request. Select **Send**. Notice how the CompanyName is currently **Office Line Prag**.
 
     ![The SAP MCW Collection is expanded with the GET Company request selected. The Send button is highlighted. The CompanyName of Office Line Prag is highlighted in the response.](media/pm_get_officelineprag.png "Get Company Request - Office Line Prag Company Name")
 
-22. In the SAP MCW Collection, select the **Patch Company** request and select **Send**. The response should show the status of **204 No Content**.
+21. In the SAP MCW Collection, select the **Patch Company** request and select **Send**. The response should show the status of **204 No Content**.
 
     ![The Patch Company request displays with the Send button highlighted. The status indicates 204 No Content.](media/pm_patchcompanyname.png "PATCH company")
 
-23. Return to the **GET Company** request and select **Send**. Notice how the CompanyName now shows **Bigmart**.
+22. Return to the **GET Company** request and select **Send**. Notice how the CompanyName now shows **Bigmart**.
 
     ![The GET Company request displays with the Send button highlighted and the CompanyName value set to Bigmart in the response"](media/pm_getcompany_bigmart.png "CompanyName updated to Bigmart")
 
-24. Retain this collection in Postman for use during the hands-on lab.
+23. Retain this collection in Postman for use during the hands-on lab.
 
 ### Task 6: Prepare payment data in Cosmos DB
 
@@ -449,11 +444,9 @@ Raw payment data is available in Azure Data Lake storage. This exercise walks th
 
 #### Step 1: Create linked services in Azure Synapse Analytics
 
-1. In the [Azure Portal](https://portal.azure.com), open the **mcw_sap_plus_extend_and_innovate** resource group.
+1. In the [Azure Portal](https://portal.azure.com), open the **SAPCAL-P2008807814-285381364** resource group.
 
 2. From the list of resources, locate and select the Synapse Workspace item named **sapdatasynws{SUFFIX}**.
-
-    ![The resource group list displays with the Synapse Workspace item highlighted.](media/ap_rg_synapseworkspace.png "Locate Synapse Workspace")
 
 3. On the Synapse workspace screen, select **Open Synapse Studio**.
 
@@ -475,7 +468,7 @@ Raw payment data is available in Azure Data Lake storage. This exercise walks th
 
     | Field | Value |
     |-------|-------|
-    | Name | Enter `datalake`. |
+    | Name | Enter `datalake` |
     | Authentication type | Select **System Assigned Managed Identity**. |
     | Azure subscription | Select your Azure subscription. |
     | Storage account name | Select **sapadls{SUFFIX}**. |
@@ -490,7 +483,7 @@ Raw payment data is available in Azure Data Lake storage. This exercise walks th
 
     | Field | Value |
     |-------|-------|
-    | Name | Enter `payment_data_cosmosdb`. |
+    | Name | Enter `payment_data_cosmosdb` |
     | Authentication type | Select **Account key**. |
     | Azure subscription | Select your Azure subscription. |
     | Azure Cosmos DB account name | Select **sap-mcw-cosmos-{SUFFIX}**. |
