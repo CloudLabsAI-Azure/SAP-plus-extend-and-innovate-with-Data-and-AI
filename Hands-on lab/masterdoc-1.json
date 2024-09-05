@@ -1,0 +1,23 @@
+[ {
+    "Name": "SAP-plus-extend-and-innovate-with-Data-and-AI",
+    "Language": "English",
+    "Files": [
+          {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-SAP-plus-extend-and-innovate-with-Data-and-AI/main/Hands-on%20lab/getting-started.md",
+        "Order": 1
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MCW/MCW-SAP-plus-extend-and-innovate-with-Data-and-AI/main/Hands-on%20lab/overview.md",
+        "Order": 2
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/SAP-plus-extend-and-innovate-with-Data-and-AI/MS-Innovation/Hands-on%20lab/Before%20the%20HOL%20-%20SAP%20plus%20extend%20and%20innovate%20with%20Data%20and%20AI.md",
+        "Order": 3
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabsAI-Azure/SAP-plus-extend-and-innovate-with-Data-and-AI/MS-Innovation/Hands-on%20lab/HOL%20step-by%20step%20-%20SAP%20plus%20extend%20and%20innovate%20with%20Data%20and%20AI.md",
+        "Order": 4
+      }
+    ]
+  } ]
+  

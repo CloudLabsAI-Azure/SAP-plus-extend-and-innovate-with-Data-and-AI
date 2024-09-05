@@ -1,92 +1,3 @@
-![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/main/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
-
-<div class="MCWHeader1">
-SAP plus extend and innovate with Data and AI
-</div>
-
-<div class="MCWHeader2">
-Hands-on lab step-by-step
-</div>
-
-<div class="MCWHeader3">
-June 2023
-</div>
-
-
-Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
-
-Microsoft may have patents, patent applications, trademarks, copyrights, or other intellectual property rights covering subject matter in this document. Except as expressly provided in any written license agreement from Microsoft, the furnishing of this document does not give you any license to these patents, trademarks, copyrights, or other intellectual property.
-
-The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
-
-© 2023 Microsoft Corporation. All rights reserved.
-
-Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
-
-**Contents** 
-
-<!-- TOC -->
-- [SAP plus extend and innovate with Data and AI hands-on lab step-by-step](#sap-plus-extend-and-innovate-with-data-and-ai-hands-on-lab-step-by-step)
-  - [Abstract and learning objectives](#abstract-and-learning-objectives)
-  - [Overview](#overview)
-  - [Solution architecture](#solution-architecture)
-  - [Requirements](#requirements)
-  - [Before the hands-on lab](#before-the-hands-on-lab)
-  - [Exercise 1: Install the self-hosted integration runtime on the SAP virtual machine](#exercise-1-install-the-self-hosted-integration-runtime-on-the-sap-virtual-machine)
-    - [Task 1: Download and install the self-hosted integration runtime](#task-1-download-and-install-the-self-hosted-integration-runtime)
-  - [Exercise 2: Ingest sales order information from SAP into Azure Synapse Analytics](#exercise-2-ingest-sales-order-information-from-sap-into-azure-synapse-analytics)
-    - [Task 1: Create dedicated SQL pool tables to hold sales data](#task-1-create-dedicated-sql-pool-tables-to-hold-sales-data)
-    - [Task 2: Create a linked service to the SAP OData endpoint for sales order header information](#task-2-create-a-linked-service-to-the-sap-odata-endpoint-for-sales-order-header-information)
-    - [Task 3: Create a linked service to the SAP OData endpoint for sales order item information](#task-3-create-a-linked-service-to-the-sap-odata-endpoint-for-sales-order-item-information)
-    - [Task 4: Create a linked service to the dedicated SQL pool database](#task-4-create-a-linked-service-to-the-dedicated-sql-pool-database)
-    - [Task 5: Create integration datasets for sales order header and sales order items](#task-5-create-integration-datasets-for-sales-order-header-and-sales-order-items)
-    - [Task 6: Create a pipeline to ingest sales data from S/4HANA](#task-6-create-a-pipeline-to-ingest-sales-data-from-s4hana)
-  - [Exercise 3: Ingest payment information from Cosmos DB into Azure Synapse Analytics](#exercise-3-ingest-payment-information-from-cosmos-db-into-azure-synapse-analytics)
-    - [Task 1: Create a dedicated SQL pool table to hold payment information](#task-1-create-a-dedicated-sql-pool-table-to-hold-payment-information)
-    - [Task 2: Create the Payments table integration dataset](#task-2-create-the-payments-table-integration-dataset)
-    - [Task 3: Create the Payments ingestion pipeline](#task-3-create-the-payments-ingestion-pipeline)
-  - [Exercise 4: Prepare data for the incoming cashflow prediction model training](#exercise-4-prepare-data-for-the-incoming-cashflow-prediction-model-training)
-    - [Task 1: Create a SQL view that combines sales orders with payments data](#task-1-create-a-sql-view-that-combines-sales-orders-with-payments-data)
-    - [Task 2: Move the view data to a parquet file in Azure Data Lake Storage Gen2](#task-2-move-the-view-data-to-a-parquet-file-in-azure-data-lake-storage-gen2)
-  - [Exercise 5: Train a regression model to predict incoming cashflow using Azure Machine Learning Studio](#exercise-5-train-a-regression-model-to-predict-incoming-cashflow-using-azure-machine-learning-studio)
-    - [Task 1: Retrieve the access key for the Azure Data Lake Storage account](#task-1-retrieve-the-access-key-for-the-azure-data-lake-storage-account)
-    - [Task 2: Create an Azure Machine Learning datastore](#task-2-create-an-azure-machine-learning-datastore)
-    - [Task 3: Create and run an Automated ML job](#task-3-create-and-run-an-automated-ml-job)
-    - [Task 4: Deploy the best model as a web service](#task-4-deploy-the-best-model-as-a-web-service)
-  - [Exercise 6: Train a regression model to predict incoming cashflow using Azure Synapse Analytics (Optional)](#exercise-6-train-a-regression-model-to-predict-incoming-cashflow-using-azure-synapse-analytics-optional)
-    - [Task 1: Create the SalesPaymentsFull Spark table from the parquet file](#task-1-create-the-salespaymentsfull-spark-table-from-the-parquet-file)
-    - [Task 2: Create an Azure Machine Learning linked service](#task-2-create-an-azure-machine-learning-linked-service)
-    - [Task 3: Train a new regression model for incoming cash flow](#task-3-train-a-new-regression-model-for-incoming-cash-flow)
-    - [Task 4: Deploy and test the regression model in the dedicated SQL pool](#task-4-deploy-and-test-the-regression-model-in-the-dedicated-sql-pool)
-  - [Exercise 7: Visualize historical data with Power BI](#exercise-7-visualize-historical-data-with-power-bi)
-    - [Task 1: Retrieve the database connection information for the dedicated SQL pool](#task-1-retrieve-the-database-connection-information-for-the-dedicated-sql-pool)
-    - [Task 2: Import data into Power BI](#task-2-import-data-into-power-bi)
-    - [Task 3: Create the relational model](#task-3-create-the-relational-model)
-    - [Task 4: Create a sales per data and customer group visualization](#task-4-create-a-sales-per-data-and-customer-group-visualization)
-    - [Task 5: Create a sales per region and customer group visualization](#task-5-create-a-sales-per-region-and-customer-group-visualization)
-    - [Task 6: Create a payments per date and customer group visualization](#task-6-create-a-payments-per-date-and-customer-group-visualization)
-    - [Task 7: Create a sales per customer group and material group visualization](#task-7-create-a-sales-per-customer-group-and-material-group-visualization)
-    - [Task 8: Create a payment offset per customer group visualization](#task-8-create-a-payment-offset-per-customer-group-visualization)
-    - [Task 9: Create a payment offset per customer group box plot visualization (Optional)](#task-9-create-a-payment-offset-per-customer-group-box-plot-visualization-optional)
-  - [Exercise 8: Integrate Azure Machine Learning and Power BI](#exercise-8-integrate-azure-machine-learning-and-power-bi)
-    - [Task 1: Add the deployed model to the Power BI report](#task-1-add-the-deployed-model-to-the-power-bi-report)
-    - [Task 2: Create a Date table for report aggregation](#task-2-create-a-date-table-for-report-aggregation)
-    - [Task 3: Create the Sales and Payment Forecast visualization](#task-3-create-the-sales-and-payment-forecast-visualization)
-  - [Exercise 9: Create an alert in Power BI](#exercise-9-create-an-alert-in-power-bi)
-    - [Task 1: Publish the Power BI report to an online workspace](#task-1-publish-the-power-bi-report-to-an-online-workspace)
-    - [Task 2: Create a gauge visualization to be used as the notification trigger](#task-2-create-a-gauge-visualization-to-be-used-as-the-notification-trigger)
-    - [Task 3: Create an alerting dashboard to send email with Power Automate](#task-3-create-an-alerting-dashboard-to-send-email-with-power-automate)
-  - [Exercise 10: Update SAP from Power BI](#exercise-10-update-sap-from-power-bi)
-    - [Task 1: Import a Power Automate flow](#task-1-import-a-power-automate-flow)
-    - [Task 2: Add a Power Automate visual and trigger the flow from Power BI](#task-2-add-a-power-automate-visual-and-trigger-the-flow-from-power-bi)
-  - [After the hands-on lab](#after-the-hands-on-lab)
-    - [Task 1: Delete the Power Automate flows](#task-1-delete-the-power-automate-flows)
-    - [Task 2: Delete the Power BI workspace report and dataset](#task-2-delete-the-power-bi-workspace-report-and-dataset)
-    - [Task 3: Remove deployed Azure resources with Terraform](#task-3-remove-deployed-azure-resources-with-terraform)
-    - [Task 4: Terminate the SAP CAL appliance](#task-4-terminate-the-sap-cal-appliance)
-
-<!-- /TOC -->
-
 # SAP plus extend and innovate with Data and AI hands-on lab step-by-step
 
 ## Abstract and learning objectives
@@ -133,7 +44,7 @@ In this exercise, we will assume the SAP environment is either on-premises or se
 
 3. Open Synapse Studio.
 
-4. Select the **Manage** hub, then choose **Integration runtimes** from beneath the Integration header. From the Integration runtimes screen, select **+ New** from the toolbar menu.
+4. Select the **Manage (1)** hub, then choose **Integration runtimes (2)** from beneath the Integration header. From the Integration runtimes screen, select **+ New (3)** from the toolbar menu.
 
     ![Synapse Studio displays with the Manage hub selected from the left menu. Integration runtimes is selected in the center pane and the + New button is highlighted in the toolbar menu of the Integration runtimes screen.](media/ss_managehub_newirmenu.png "New integration runtime")
 
@@ -173,15 +84,17 @@ Historical sales order information resides in S/4HANA and is exposed with OData 
 
 ### Task 1: Create dedicated SQL pool tables to hold sales data
 
+1. In Synapse Studio, select the **Manage** hub from the left menu, select **+ New**. Under the **Dedicated SQL pool details**, on the **Dedicated SQL pool name** enter **sapdatasynsql**, and select **Review + create**. Wait for the status to show **Online**.
+
 1. In Synapse Studio, select the **Develop** hub from the left menu, then expand the **+** menu from the center pane and choose **SQL script**.
 
     ![Synapse Studio displays with the Develop hub selected in the left menu and the + menu expanded in the center pane. The SQL script item is highlighted.](media/ss_develophub_newsqlscript.png "New SQL script")
 
-2. In the SQL script tab, choose to connect to the **sapdatasynsql** dedicated SQL pool in the toolbar menu.
+1. In the SQL script tab, choose to connect to the **sapdatasynsql** dedicated SQL pool in the toolbar menu.
 
     ![The SQL Script tab displays with the sapdatasynsql database chosen in the Connect to field.](media/ss_sqlscript_connectto_sapdatasynsql.png "Connect to the dedicated SQL pool database")
 
-3. In the SQL script editor, paste and run the following SQL command to create the SalesOrderHeaders table. The **Run** button is located in the SQL script toolbar menu.
+1. In the SQL script editor, paste and run the following SQL command to create the SalesOrderHeaders table. The **Run** button is located in the SQL script toolbar menu.
 
     ```SQL
     CREATE TABLE SalesOrderHeaders(
@@ -258,7 +171,7 @@ Historical sales order information resides in S/4HANA and is exposed with OData 
 
 A linked service describes connectivity to external resources. In this case, an authenticated OData-based linked service is required to pull sales order data from SAP.
 
-1. In Synapse Studio, select the **Manage** hub, then choose **Linked services** from the center menu. Select **+ New** in the Linked services screen toolbar menu.
+1. In Synapse Studio, select the **Manage (1)** hub, then choose **Linked services (2)** from the center menu. Select **+ New (3)** in the Linked services screen toolbar menu.
 
     ![The Manage Hub displays with the Linked services item selected. The + New button is highlighted on the Linked services screen toolbar.](media/ss_newlinkedservicemenu.png "New Linked service")
 
@@ -270,18 +183,18 @@ A linked service describes connectivity to external resources. In this case, an 
 
     | Field | Value |
     |-------|-------|
-    | Name | Enter `sap_salesorderheader_odata`. |
-    | Connect via integration runtime | Select **SAPVM-SHIR**. |
-    | Service URL | Use the SAP OData URL recorded in the Before the hands-on lab steps. This is the URL that ends in `ZBD_I_SALESDOCUMENT_E_CDS`. |
-    | Authentication type | Select **Basic authentication**. |
-    | User name | Enter `S4H_EXT`. |
-    | Password | Enter `Welcome1`. |
+    | Name | Enter `sap_salesorderheader_odata` |
+    | Connect via integration runtime | Select **SAPVM-SHIR** |
+    | Service URL | Use the SAP OData URL recorded in the Before the hands-on lab steps. This is the URL that ends in `ZBD_I_SALESDOCUMENT_E_CDS` |
+    | Authentication type | Select **Basic authentication** |
+    | User name | Enter `S4H_EXT` |
+    | Password | Enter `Welcome1` |
 
     ![The New linked service OData form displays populated with the preceding values. The Test connection button is highlighted.](media/ss_salesorderheader_linkedserviceform.png "New Linked service - OData")
 
 ### Task 3: Create a linked service to the SAP OData endpoint for sales order item information
 
-1. In Synapse Studio, select the **Manage** hub, then choose **Linked services** from the center menu. Select **+ New** in the Linked services screen toolbar menu.
+1. In Synapse Studio, select the **Manage (1)** hub, then choose **Linked services (2)** from the center menu. Select **+ New (3)** in the Linked services screen toolbar menu.
 
     ![The Manage Hub displays with the Linked services item selected. The + New button is highlighted on the Linked services screen toolbar.](media/ss_newlinkedservicemenu.png "New Linked service")
 
@@ -293,18 +206,18 @@ A linked service describes connectivity to external resources. In this case, an 
 
     | Field | Value |
     |-------|-------|
-    | Name | Enter `sap_salesorderitems_odata`. |
-    | Connect via integration runtime | Select **SAPVM-SHIR**. |
-    | Service URL | Use the SAP OData URL recorded in the from the Before the hands-on lab steps. Replace **ZBD_I_SALESDOCUMENT_E_CDS** with `sd_f1814_so_fs_srv` in the URL value. |
-    | Authentication type | Select **Basic authentication**. |
-    | User name | Enter `S4H_EXT`. |
-    | Password | Enter `Welcome1`. |
+    | Name | Enter `sap_salesorderitems_odata` |
+    | Connect via integration runtime | Select **SAPVM-SHIR** |
+    | Service URL | Use the SAP OData URL recorded in the from the Before the hands-on lab steps. Replace **ZBD_I_SALESDOCUMENT_E_CDS** with `sd_f1814_so_fs_srv` in the URL value |
+    | Authentication type | Select **Basic authentication** |
+    | User name | Enter `S4H_EXT` |
+    | Password | Enter `Welcome1` |
 
     ![The New linked service OData form displays populated with the preceding values. The Test connection button is highlighted.](media/ss_salesorderitems_linkedserviceform.png "New Linked service - OData")
 
 ### Task 4: Create a linked service to the dedicated SQL pool database
 
-1. In Synapse Studio, select the **Manage** hub, then choose **Linked services** from the center menu. Select **+ New** in the Linked services screen toolbar menu.
+1. In Synapse Studio, select the **Manage (1)** hub, then choose **Linked services (2)** from the center menu. Select **+ New (3)** in the Linked services screen toolbar menu.
 
     ![The Manage Hub displays with the Linked services item selected. The + New button is highlighted on the Linked services screen toolbar.](media/ss_newlinkedservicemenu.png "New Linked service")
 
@@ -316,11 +229,11 @@ A linked service describes connectivity to external resources. In this case, an 
 
     | Field | Value |
     |-------|-------|
-    | Name | Enter `sales_order_data_sql`. |
+    | Name | Enter `sales_order_data_sql` |
     | Azure subscription | Select the Azure subscription for the lab. |
-    | Server name | Select **sapdatasynws{SUFFIX}**. |
-    | Database name | Select **sapdatasynsql**. |
-    | Authentication type | Select **System Assigned Managed Identity**. |
+    | Server name | Select **sapdatasynws{SUFFIX}** |
+    | Database name | Select **sapdatasynsql** |
+    | Authentication type | Select **System Assigned Managed Identity** |
 
     ![The New linked service Azure Synapase Analytics blade form displays populated with the preceding values.](media/ss_linkedservice_azuresynapseanalytics_form.png "New Azure Synapse Analytics linked service form")
 
@@ -344,9 +257,9 @@ The Copy activity in Azure Synapse Analytics requires the usage of integration d
 
     | Field | Value |
     |-------|-------|
-    | Name | Enter `sales_order_headers_odata`. |
-    | Linked service | Select **sap_salesorderheader_odata**. |
-    | Path | Select **ZBD_I_Salesdocument_E**. |
+    | Name | Enter `sales_order_headers_odata` (1) |
+    | Linked service | Select **sap_salesorderheader_odata (2)** |
+    | Path | Select **ZBD_I_Salesdocument_E (3)** |
 
     ![The Set properties blade displays populated with the preceding values.](media/ss_salesorderheader_dataset_form.png "Sales order headers integration dataset details")
 
@@ -354,9 +267,9 @@ The Copy activity in Azure Synapse Analytics requires the usage of integration d
 
     | Field | Value |
     |-------|-------|
-    | Name | Enter `sales_order_items_odata`. |
-    | Linked service | Select **sap_salesorderitems_odata**. |
-    | Path | Select **C_Salesorderitemfs**. |
+    | Name | Enter `sales_order_items_odata` |
+    | Linked service | Select **sap_salesorderitems_odata** |
+    | Path | Select **C_Salesorderitemfs** |
 
     ![The Set properties blade displays populated with the preceding values.](media/ss_salesorderitems_dataset_form.png "Sales order items integration dataset details")
 
@@ -372,10 +285,10 @@ The Copy activity in Azure Synapse Analytics requires the usage of integration d
 
     | Field | Value |
     |-------|-------|
-    | Name | Enter `sales_order_headers_sql`. |
-    | Linked service | Select **sales_order_data_sql**. |
-    | Table name | Select **dbo.SalesOrderHeaders**. |
-    | Import schema | Select **From connection/store**. |
+    | Name | Enter `sales_order_headers_sql` |
+    | Linked service | Select **sales_order_data_sql** |
+    | Table name | Select **dbo.SalesOrderHeaders** |
+    | Import schema | Select **From connection/store** |
 
     ![The Set properties blade displays populated with the preceding values.](media/ss_azuresynapseanalytics_salesorderheaders_dataset_form.png "New Azure Synapse Analytics Sales headers integration dataset form")
 
@@ -383,10 +296,10 @@ The Copy activity in Azure Synapse Analytics requires the usage of integration d
 
     | Field | Value |
     |-------|-------|
-    | Name | Enter `sales_order_items_sql`. |
-    | Linked service | Select **sales_order_data_sql**. |
-    | Table name | Select **dbo.SalesOrderItems**. |
-    | Import schema | Select **From connection/store**. |
+    | Name | Enter `sales_order_items_sql` |
+    | Linked service | Select **sales_order_data_sql** |
+    | Table name | Select **dbo.SalesOrderItems** |
+    | Import schema | Select **From connection/store**|
 
     ![The Set properties blade displays populated with the preceding values.](media/ss_azuresynapseanalytics_salesorderitems_dataset_form.png "New Azure Synapse Analytics Sales items integration dataset form")
 

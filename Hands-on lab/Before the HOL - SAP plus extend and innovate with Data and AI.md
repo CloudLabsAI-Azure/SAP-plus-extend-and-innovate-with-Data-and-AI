@@ -503,7 +503,7 @@ The source data is payment data that is located in Azure Data Lake Storage Gen2 
 
    ![The left menu of Synapse Studio displays with the Data hub highlighted.](media/ss_datahub_menu.png "Data hub")
 
-2. From the center pane, select the **Linked** tab. Expand the **Azure Data Lake Storage Gen2** item, followed by the **datalake** item, and select the **payment-data-csv** container. From the **payment-data-csv** tab, select the **paymentData_CAL2021.csv** file. Next, select **New integration dataset** from the toolbar menu.
+2. From the center pane, select the **Linked (1)** tab. Expand the **Azure Data Lake Storage Gen2 (2)** item, followed by the **datalake (3)** item, and select the **payment-data-csv (4)** container. From the **payment-data-csv** tab, select the **paymentData_CAL2021.csv (5)** file. Next, select **New integration dataset (6)** from the toolbar menu.
 
     >**Note**: If you do not see **datalake** in the **Azure Data Lake Storage Gen2** items, you may need to refresh.
 
@@ -531,16 +531,14 @@ The source data is payment data that is located in Azure Data Lake Storage Gen2 
 
     | Field | Value |
     |-------|-------|
-    | Name | Enter `payments_cosmosdb`. |
-    | Linked service | Select **payment_data_cosmosdb**. |
-    | Container | Select **paymentData**. |
-    | Import schema | Select **None**. |
+    | Name | Enter `payments_cosmosdb` |
+    | Linked service | Select **payment_data_cosmosdb** |
+    | Container | Select **items** |
+    | Import schema | Select **None** |
 
     ![The Set properties blade displays populated with the preceding values.](media/ss_cosmosdbintegrationdataset_setpropertiesform.png "Set Cosmos DB integration dataset properties")
 
 9. On the Synapse Studio toolbar menu, select **Publish all**. Select **Publish** on the verification blade.
-
-    ![The Synapse Studio toolbar menu displays with the Publish all button highlighted.](media/ss_publishall.png "Publish all")
 
 #### Step 3: Create pipeline to ingest payment data into Cosmos DB
 
@@ -576,9 +574,7 @@ The source data is payment data that is located in Azure Data Lake Storage Gen2 
 
     ![Synapse Studio displays with the Monitor hub selected from the left menu, the Pipeline runs selected in the center panel, and the payment pipeline listed as in progress. The Refresh button is highlighted.](media/ss_monitorpaymentspipeline.png "Monitor hub")
 
-9. Verify the data by returning to the Azure Portal, opening the **mcw_sap_plus_extend_and_innovate** resource group, then locating and opening the **sap-mcw-cosmos-{SUFFIX}** Cosmos DB resource.
-
-    ![A portion of the mcw_sap_plus_extend_and_innovate resources displays with the Cosmos DB resource selected.](media/portal_cosmosdb_resource.png "Cosmos DB resource")
+9. Verify the data by returning to the Azure Portal, opening the **sap-mcw-cosmos-<inject key="DeploymentID" enableCopy="false"/>** resource group, then locating and opening the **sap-mcw-cosmos-<inject key="DeploymentID" enableCopy="false"/>** Cosmos DB resource.
 
 10. On the Azure Cosmos DB account screen, select **Data Explorer** from the left menu. In the SQL API panel, expand the **SAPS4D** and **paymentData** items. Select **Items**, then choose an item from the **paymentData** tab. This will display the contents of the selected document for review.
 
