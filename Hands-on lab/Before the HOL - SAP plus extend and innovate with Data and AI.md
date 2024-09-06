@@ -65,9 +65,13 @@ Duration: 3 - 4 hours
 
     >**Note**: If difficulty arises using the **Basic** mode, an alternative is to use **Authorization with Application Type** using a [service principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
+    >**Note:** Select **Proceed** on the **Warning** pop-up.
+
 1. On the **Private Key** modal, select to **Store** the private key in the SAP Cloud Appliance Library. Check the **Encrypt the private key with a password** and enter a password. Type the password once more in the **Retype Password** textbox. Select the **Download** button to download the encrypted key.
 
     ![The Private Key dialog displays with the password fields filled in and the Store and Download buttons highlighted.](media/sapcal_privatekey.png "Private Key dialog")
+
+    >**Note:** Close the **Warning** pop-up.
 
 1. The deployment  will take approximately 90 minutes. The status will update on the Instances screen. Once complete, the status will indicate **Active**.
 
@@ -357,7 +361,7 @@ A service is available that allows for the update of a Business Partner record. 
 
     ![The filter pane displays with the preceding values populated.](media/sapui_addsvcfilter_gwsample.png "Add Service Filter Pane")
 
-4. From the list of results, select the **/IWBEP/GWSAMPLE_BASIC** item.
+<!-- 4. From the list of results, select the **/IWBEP/GWSAMPLE_BASIC** item.
 
     ![The Select Backend Services pane displays with the /IWBEP/GWSAMPLE_BASIC item highlighted.](media/sapui_selectbackendsvc_gwsample.png "Select Backend Services pane")
 
@@ -367,7 +371,7 @@ A service is available that allows for the update of a Business Partner record. 
 
 6. On the **Add Selected Services** screen, select the **Back** button on the toolbar menu. This will open the **Activate and Maintain Services** window once more.
 
-    ![A portion of the Add Selected Services toolbar displays with the Back button highlighted.](media/sapvm_sapgui_backbuttonaddservices_gwsample.png "Back button")
+    ![A portion of the Add Selected Services toolbar displays with the Back button highlighted.](media/sapvm_sapgui_backbuttonaddservices_gwsample.png "Back button") -->
 
 7. On the **Activate and Maintain Services** screen, select the **Filter** button from the toolbar menu.
 
@@ -576,7 +580,7 @@ The source data is payment data that is located in Azure Data Lake Storage Gen2 
 
 9. Verify the data by returning to the Azure Portal, opening the **sap-mcw-cosmos-<inject key="DeploymentID" enableCopy="false"/>** resource group, then locating and opening the **sap-mcw-cosmos-<inject key="DeploymentID" enableCopy="false"/>** Cosmos DB resource.
 
-10. On the Azure Cosmos DB account screen, select **Data Explorer** from the left menu. In the SQL API panel, expand the **SAPS4D** and **paymentData** items. Select **Items**, then choose an item from the **paymentData** tab. This will display the contents of the selected document for review.
+10. On the Azure Cosmos DB account screen, select **Data Explorer** from the left menu. In the SQL API panel, expand the **SAPS4D** and **Items**. Select **Items** tab. This will display the contents of the selected document for review.
 
     ![The Azure Cosmos DB account screen displays with the Data Explorer item highlighted in the left menu. In the SQL API pane, the SAPS4D database is expanded along with the paymentData collection. The items option is selected beneath the collection. One document is highlighted in the paymentData tab and the screen displays the selected document's content.](media/portal_cosmosdb_paymentdatapreview.png "View document in Cosmos DB")
 
