@@ -426,7 +426,7 @@ Payment history data is required when creating the cash flow prediction model. T
 
     | Field | Value |
     |-------|-------|
-    | Name | Enter `payments_sql`. |
+    | Name | Enter `payments_sql` |
     | Linked service | Select **sales_order_data_sql**. |
     | Table name | Select **dbo.Payments**. |
     | Import schema | Select **From connection/store**. |
@@ -547,10 +547,10 @@ In this task, a pipeline is created to copy the SalesPaymentsFull view to a parq
 
     | Field | Value |
     |-------|-------|
-    | Name | Enter `sales_payments_full`. |
-    | Linked service | Select **sales_order_data_sql**. |
-    | Table name | Select **dbo.SalesPaymentsFull**. |
-    | Import schema | Select **From connection/store**. |
+    | Name | Enter `sales_payments_full` |
+    | Linked service | Select **sales_order_data_sql** |
+    | Table name | Select **dbo.SalesPaymentsFull** |
+    | Import schema | Select **From connection/store** |
 
     ![The Set properties blade for the new integration dataset displays populated with the preceding values.](media/ss_salespaymentsfull_dataset_form.png "Set integration dataset properties")
 
@@ -570,10 +570,10 @@ In this task, a pipeline is created to copy the SalesPaymentsFull view to a parq
 
     | Field | Value |
     |-------|-------|
-    | Name | Enter `sales_payment_full_parquet`. |
-    | Linked service | Select **datalake**. |
-    | File path | Enter **sales-payment-parquet**. |
-    | Import schema | Select **None**. |
+    | Name | Enter `sales_payment_full_parquet` |
+    | Linked service | Select **datalake** |
+    | File path | Enter **sales-payment-parquet** |
+    | Import schema | Select **None** |
 
     ![The Set properties blade for the new integration dataset displays populated with the preceding values.](media/ss_salespayment_dataset_properties.png "Set integration dataset properties")
 
@@ -625,7 +625,7 @@ In this exercise, you will learn to connect to sales data in Azure Data Lake Sto
 
 ### Task 1: Retrieve the access key for the Azure Data Lake Storage account
 
-1. In the Azure Portal, open the lab resource group **mcw_sap_plus_extend_and_innovate** then search for and select the Storage account **sapadls{SUFFIX}**.
+1. In the Azure Portal, open the lab resource group **SAPCAL-P2008813809-285487417** then search for and select the Storage account **sapadls{SUFFIX}**.
 
     ![The resource group listing displays with the sapadls{SUFFIX} Storage account resource selected.](media/ap_adlsrglist.png "Resource group listing")
 
@@ -651,16 +651,16 @@ In this exercise, you will learn to connect to sales data in Azure Data Lake Sto
 
     | Field | Value |
     |-------|-------|
-    | Datastore name | Enter `sales_payments_full_adls`. |
-    | Datastore type | Select **Azure Blob Storage**. |
-    | Account selection method | Select **From Azure subscription**. |
-    | Subscription ID | Select the lab subscription. |
-    | Storage account | Select **sapadls{SUFFIX}(mcw_sap_plus_extend_and_innovate)**. |
+    | Datastore name | Enter `sales_payments_full_adls` |
+    | Datastore type | Select **Azure Blob Storage** |
+    | Account selection method | Select **From Azure subscription** |
+    | Subscription ID | Select the lab subscription |
+    | Storage account | Select **sapadls{SUFFIX}(mcw_sap_plus_extend_and_innovate)** |
     | Blob container | Select **sales-payment-parquet** |
-    | Save credentials with the datastore for data access | Select **Yes**. |
-    | Authentication type | Select **Account key**. |
-    | Account key | Enter the storage account key obtained in the previous task. |
-    | Use workspace managed identity for data preview and profiling in Azure Machine Learning studio | Toggle off. |
+    | Save credentials with the datastore for data access | Select **Yes** |
+    | Authentication type | Select **Account key** |
+    | Account key | Enter the storage account key obtained in the previous task |
+    | Use workspace managed identity for data preview and profiling in Azure Machine Learning studio | Toggle off |
 
     ![The Create datastore blade displays with a form populated with the preceding values.](media/amls_newdatastoreform.png "Create datastore")
 
@@ -678,7 +678,7 @@ In this exercise, you will learn to connect to sales data in Azure Data Lake Sto
 
     ![The Create a new Automated ML job screen displays with the Create button highlighted.](media/amls_automl_createnewdatasetmenu.png "Create new data asset")
 
-4. On the Create data asset Data type form, name the dataset `sap-sales-payments-full`. Select **Next**.
+4. On the Create data asset Data type form, name the dataset `sap-sales-payments-full`, and select **Type** as **Tabular**. Select **Next**.
 
     ![The Create data asset Data type form displays with sap-sales-payments-full entered in the Name field.](media/amls_dataset_basicinfo.png "New data asset Data type form")
 
@@ -740,10 +740,10 @@ In this exercise, you will learn to connect to sales data in Azure Data Lake Sto
 
     | Field | Value |
     |-------|-------|
-    | Experiment name | Enter `predict-incoming-cashflow`. |
-    | Target column | Select **PAYMENTDELAYINDAYS**. |
-    | Select compute type | Select **Compute cluster**. |
-    | Select Azure ML compute cluster | Select **automlcompute**. |
+    | Experiment name | Enter `predict-incoming-cashflow` |
+    | Target column | Select **PAYMENTDELAYINDAYS** |
+    | Select compute type | Select **Compute cluster** |
+    | Select Azure ML compute cluster | Select **automlcompute** |
 
     ![The Configure job step displays with a form populated with the preceding values.](media/amls_configurejob.png "Configure job")
 
@@ -761,8 +761,6 @@ In this exercise, you will learn to connect to sales data in Azure Data Lake Sto
     - RandomForest
     - ExtremeRandomTrees
     - LightGBM
-    - FastLinearRegressor
-    - OnlineGradientDescentRegressor
 
     ![The Additional configurations blade displays with Normalized root mean squared error selected as the Primary metric and the Blocked models expanded with the above items checked.](media/amls_jobadditionalconfigurations.png "Additional configurations")
 
@@ -788,8 +786,8 @@ In this exercise, you will learn to connect to sales data in Azure Data Lake Sto
 
     | Field | Value |
     |-------|-------|
-    | Name | Enter `predict-incoming-cashflow-svc`. |
-    | Compute type | Select **Azure Container Instance**. |
+    | Name | Enter `predict-incoming-cashflow-svc` |
+    | Compute type | Select **Azure Container Instance** |
 
     ![The Deploy a model blade displays with a form populated with the preceding values.](media/amls_model_deploy_settings.png "Deploy a model")
 
@@ -993,9 +991,9 @@ In this exercise, we will implement visualizations to help Contoso Retail gain i
 
 ### Task 2: Import data into Power BI
 
-1. Open **Power BI Desktop**. On the splash screen, select the **Get Data** item.
+1. Open **Power BI Desktop**. On the splash screen, select the **Get Data from different resources** item.
 
-    ![A portion of the Power BI Desktop splash screen displays with the Get Data item highlighted.](media/pbi_getdatamenu_splash.png "Power BI Desktop splash screen")
+    <!-- ![A portion of the Power BI Desktop splash screen displays with the Get Data item highlighted.](media/pbi_getdatamenu_splash.png "Power BI Desktop splash screen") -->
 
 2. On the Get Data dialog, select **Azure** from the left menu and select **Azure Synapse Analytics SQL** from the listing. Select the **Connect** button.
 
@@ -1015,7 +1013,7 @@ In this exercise, we will implement visualizations to help Contoso Retail gain i
 
     ![The SQL Server database authentication window displays with Microsoft account selected from the left menu and the Sign in button highlighted.](media/pbi_sqlauth_dialog_signin.png "Sign in with Microsoft account")
 
-5. Once signed in, select the **Connect** button on the dialog.
+5. Enter the username: <inject key="AzureAdUserEmail"></inject>, and password: <inject key="AzureAdUserPassword"></inject>, select the **Connect** button on the dialog.
 
 6. On the Navigator dialog, check the box next to all three tables, then select the **Transform Data** button.
 
@@ -1538,63 +1536,3 @@ Contoso Retail also needs a way to flag risky customers in the SAP system whose 
 13. Switch back to the Postman application, issue the **GET Customer** request from the SAP MCW collection. Notice how the BusinessPartnerRole value now indicates **02**. This role indicates this customer is now flagged as a risky customer in SAP.
 
     ![A portion of the Postman response displays with Bigmart highlighted with a BusinessPartnerRole of 02.](media/pm_bigmart_role02.png "Bigmart BusinessPartnerRole has a value of 02")
-
-## After the hands-on lab
-
-Duration: 10 minutes
-
-### Task 1: Delete the Power Automate flows
-
-1. In Power Automate, select **My flows** locate the **Trigger a flow with a Power BI data-driven alert** item, expand the ellipsis menu and choose **Delete**.
-
-   ![The Power Automate interface displays with My flows selected from the left menu. The ellipsis menu is expanded next to the Trigger a flow with a Power BI data-driven alert item and the Delete option is selected.](media/pa_deleteflow.png "Delete Power Automate flow")
-
-2. Repeat the previous step to delete the **Update Business Partner from Power BI** flow.
-
-### Task 2: Delete the Power BI workspace report and dataset
-
-1. In the Power BI workspace, select **My workspace** from the left menu to get a listing of items. Delete the report, dataset, and the Alerting dashboard items by expanding the ellipsis menu and choosing Delete.
-
-    ![The My workspace items are listed with an ellipsis menu displaying with the Delete option highlighted.](media/opbi_deleteitems.png "Delete item")
-
-### Task 3: Remove deployed Azure resources with Terraform
-
-1. In the Azure portal, select the cloud shell button from the upper-right toolbar menu options.
-
-    ![The upper right toolbar displays with the cloud shell button highlighted.](media/cloudshell_icon.png "Cloud Shell")
-
-2. Navigate to the Terraform directory by executing the following command.
-
-    ```PowerShell
-    cd 'MCW-SAP-plus-extend-and-innovate-with-data-and-ai/Hands-on lab/Resources/terraform'
-    ```
-
-3. Enter the following command to remove all deployed resources, type `yes` and <kbd>Enter</kbd> when prompted.
-
-    ```PowerShell
-    terraform destroy
-    ```
-
-    > **Note**: Ensure the proper subscription is set using `az account set --subscription {SUBSCRIPTION_ID_GOES_HERE} if experiencing difficulties.
-
-4. Execute the following command **two times** to return to the user directory.
-
-    ```PowerShell
-    cd..
-    ```
-
-5. Delete the cloned source code repository with the following command.
-
-   ```PowerShell
-   Remove-Item -Path .\MCW-SAP-plus-extend-and-innovate-with-data-and-ai -recurse -force  
-   ```
-
-### Task 4: Terminate the SAP CAL appliance
-
-1. Log into the [SAP Cloud Appliance Library](https://cal.sap.com/) web site.
-
-2. From the left menu, select **Appliances**, locate the **MCW SAP** appliance and expand the ellipsis menu. Select **Terminate** to delete the appliance.
-
-![The SAP CAL interface displays with Appliances selected in the left menu. The ellipsis next to the MCW SAP appliance is expanded with the Terminate option selected.](media/sapcal_deleteappliance.png "Terminate appliance")
-
-You should follow all steps provided *after* attending the Hands-on lab.
