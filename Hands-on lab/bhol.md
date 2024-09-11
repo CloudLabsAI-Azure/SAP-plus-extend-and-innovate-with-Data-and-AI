@@ -1,73 +1,97 @@
+# SAP plus extend and innovate with Data and AI before the hands-on lab setup guide
+
 ## Before the hands-on lab
 
 Duration: 3 - 4 hours
 
 ### Task 1: Obtain the desired Azure Subscription ID value
 
-1. In the JumpVM, click on Azure portal shortcut of Microsoft Edge browser which is created on the desktop to log into the [Azure Portal](https://portal.azure.com).
+1. In the top toolbar, search for and select **Subscriptions**.
 
-2. In the top toolbar, search for and select **Subscriptions**.
+    ![The Azure portal displays with Subscriptions entered in the search box and the Subscriptions item selected from the search results.](media/subscription.png "Search for Azure Subscriptions")
 
-    ![The Azure portal displays with Subscriptions entered in the search box and the Subscriptions item selected from the search results.](media/azure_portal_subscriptions_search.png "Search for Azure Subscriptions")
+1. On the **Subscriptions** screen, locate the desired Azure Subscription to deploy lab resources and copy the **Subscription ID** value. Save this value in a text editor for later use.
 
-3. On the **Subscriptions** screen, locate the desired Azure Subscription to deploy lab resources and copy the **Subscription ID** value. Save this value in a text editor for later use.
-
-    ![The Subscriptions screen displays with the Subscription ID value copied from a list of subscriptions.](media/azure_portal_copy_subscription_id.png "Azure Subscriptions")
+    ![The Subscriptions screen displays with the Subscription ID value copied from a list of subscriptions.](media/subscriptions(1).png "Azure Subscriptions")
 
 ### Task 2: Create an SAP Cloud Appliance
 
-1. Open the [SAP Cloud Appliance Library](https://cal.sap.com/) website using the Microsoft Edge browser.
+1. Using an internet browser, open the [SAP Cloud Appliance Library](https://cal.sap.com/) website.
 
-2. Select the **Log On** button in the header of the website.
+1. Select the **Log On** button in the header of the website.
 
     ![A portion of the SAP Cloud Appliance Library site displays with the Log On button highlighted.](media/sapcal_logon_button.png "SAP Cloud Appliance Library Log On")
 
-3. Either register for a new account or log in with your existing credentials.
+1. Select **Register** for creating a new account using the following details:
 
-4. On the SAP Cloud Appliance Library **Appliance Templates** screen, search for and locate the **SAP S/4HANA 2021, Fully-Activated Appliance** item, and select the **Create Appliance** button in the search results.
+    - **First Name**: odluser
+    - **Last Name**: <inject key="Deployment-id" enableCopy="false"></inject>
+    - **Email**: <inject key="AzureAdUserEmail"></inject>
+    - **Phone**: Enter any random number
+    - **Country**: United States
+    - Select **Continue**
+    - **Company**: Microsoft
+    - **Street Address**: 123 Main Street
+    - **City**: Anytown
+    - **ZIP/Postal Code**: 12345
+    - **Country/Region**: United States
+    - - Select **Continue**
+    - **Password**: <inject key="AzureAdUserPassword"></inject>
+    - **Re-Enter Password**: <inject key="AzureAdUserPassword"></inject>
+    - Select **Register**
 
-    ![The Appliance Templates screen displays with SAP S/4Hana 2021, Fully-Activated Appliance entered in the search box, and the Create Appliance button highlighted in the search results listing.](media/locate_sap_appliance_create_instance_button.png "Create SAP S4/HANA instance")
+1. For activating the account, open **[Outlook](https://outlook.office365.com/mail/inbox/id/AAQkADljM2VkMzEwLTI2ZmUtNDlmNC1iYjA5LTBmNzlkYTY5NzJmYgAQABkSpmAaulhIiEXU2F3Yr90%3D)** on the same browser, and log in using the same credentials which you have used for registering, you will recieve an email from **SAP ID Service**, open that email, and select **Click here to activate your account**.
 
-5. On the **Terms and Conditions** screen, read the conditions of the 30-day trial license, and select the **I Accept** button to continue.
+1. It will open the new page, on the **Account Successfully Activated** page, select **Continue**.
 
-6. On the **Basic Mode: Create Appliance - Account Details** screen, enter the following values, then select the **Authorize** button:
+1. On the **Terms and Conditions** screen, read the conditions of the 30-day trial license, and select the **I Accept** button to continue.
+
+1. On the SAP Cloud Appliance Library from the left navigation pane select **Appliance Templates (1)** screen, search for and locate the **SAP S/4HANA 2023, Fully-Activated Appliance (2)** item, and select the **Create Appliance** button in the search results.
+
+    ![The Appliance Templates screen displays with SAP S/4Hana 2023, Fully-Activated Appliance entered in the search box, and the Create Appliance button highlighted in the search results listing.](media/allappliance.png "Create SAP S4/HANA instance")
+
+1. On the **Terms and Conditions** screen, read the conditions, and select the **I Accept** button to continue.
+
+1. On the **Basic Mode: Create Appliance - Account Details** screen, enter the following values, then select the **Authorize (6)** button:
 
     | Field | Value |
     |-------|-------|
-    | Name | MCW SAP plus extend and innovate |
-    | Description | SAP instance for the Microsoft Cloud Workshop |
-    | Cloud Provider | Select **Microsoft Azure** |
-    | Subscription ID | Paste the **Subscription ID** value from Task 1 |
-    | Authorization Type | Select **Standard Authorization** |
+    | Name | **SAP plus extend and innovate (1)** |
+    | Description | **SAP instance for the Microsoft Cloud Workshop (2)** |
+    | Cloud Provider | Select **Microsoft Azure (3)** |
+    | Subscription ID | Paste the **Subscription ID (4)** value from Task 1 |
+    | Authorization Type | Select **Standard Authorization (5)** |
 
-    ![The Basic Mode: Create Instance Account Details screen displays with the form filled with the preceding values. The Authorize button is highlighted.](media/sap_createinstance_account_details.png "SAP Create Instance")
+    ![The Basic Mode: Create Instance Account Details screen displays with the form filled with the preceding values. The Authorize button is highlighted.](media/sap-plus.png "SAP Create Instance")
 
-7. When prompted, authenticate to Azure. If prompted, select to **Consent on behalf of your organization** and select **Accept**.
+1. When prompted, authenticate to Azure. If prompted, select to **Consent on behalf of your organization** and select **Accept**.
 
-    ![A Permissions requested modal dialog displays with the Consent on behalf of your organization checkbox checked and the Accept button highlighted.](media/sapcal_consent_modal.png "SAP Cloud Appliance Library Permissions Requested")
+    ![A Permissions requested modal dialog displays with the Consent on behalf of your organization checkbox checked and the Accept button highlighted.](media/accept-sap.png "SAP Cloud Appliance Library Permissions Requested")
 
-8. Returning to the **Basic Mode: Create Appliance** screen fill the **Appliance Details** form as follows and select **Create**:
+1. Returning to the **Basic Mode: Create Appliance** screen fill the **Appliance Details** form as follows and select **Create**:
 
     | Field | Value |
     |-------|-------|
-    | Name  | MCW SAP |
+    | Name  | MS-SAP |
     | Region | Select the nearest location |
     | Password | Choose a strong password |
     | Retype Password | Enter the chosen password |
 
-    ![The Basic Mode: Create Instance screen displays with the Instance Details form filled as previously specified. The Create button is highlighted.](media/sap_create_instance_instance_details.png "Instance Details form")
-
     >**Note**: If difficulty arises using the **Basic** mode, an alternative is to use **Authorization with Application Type** using a [service principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-9. On the **Private Key** modal, select to **Store** the private key in the SAP Cloud Appliance Library. Check the **Encrypt the private key with a password** and enter a password. Type the password once more in the **Retype Password** textbox. Select the **Download** button to download the encrypted key.
+    >**Note:** Select **Proceed** on the **Warning** pop-up.
+
+1. On the **Private Key** modal, select to **Store** the private key in the SAP Cloud Appliance Library. Check the **Encrypt the private key with a password** and enter a password. Type the password once more in the **Retype Password** textbox. Select the **Download** button to download the encrypted key.
 
     ![The Private Key dialog displays with the password fields filled in and the Store and Download buttons highlighted.](media/sapcal_privatekey.png "Private Key dialog")
 
-10. The deployment  will take approximately 90 minutes. The status will update on the Instances screen. Once complete, the status will indicate **Active**.
+    >**Note:** Close the **Warning** pop-up.
 
-    ![The MCW SAP instance displays with a status of Active.](media/sapcal_activeinstance.png "SAP CAL Instance listing")
+1. The deployment  will take approximately 90 minutes. The status will update on the Instances screen. Once complete, the status will indicate **Active**.
 
-### Task 3: Deploy the Azure Resources
+    ![The MCW SAP instance displays with a status of Active.](media/active.png "SAP CAL Instance listing")
+
+<!-- ### Task 3: Deploy the Azure Resources
 
 This lab utilizes Terraform Infrastructure as Code to deploy the necessary Azure resources.
 
@@ -111,25 +135,29 @@ This lab utilizes Terraform Infrastructure as Code to deploy the necessary Azure
     terraform apply
     ```
 
-8. Close the Cloud Shell panel if desired.
+8. Close the Cloud Shell panel if desired. -->
 
-### Task 4: Prepare sales data in SAP
+### Task 3: Prepare sales data in SAP
 
 This task demonstrates creating a sales view in SAP and exposing it as an OData service for consumption by external services.
 
-1. On the SAP Cloud Appliance Library Instances page, select the **Connect** button on the **MCW SAP** row.
+1. On the SAP Cloud Appliance Library Instances page, select the **Connect** button on the **SAP** row.
 
-    ![The SAP CAL instances listing displays with the Connect button highlighted next to the MCW SAP item.](media/sapcal_instancerowconnect.png "Connect to SAP Instance")
+    ![The SAP CAL instances listing displays with the Connect button highlighted next to the MCW SAP item.](media/connect.png "Connect to SAP Instance")
 
 2. On the **Connect to the instance** dialog, select the **Connect** link on the RDP row. This will download an RDP file.
 
-    ![The Connect to the instance dialog displays with the Connect link highlighted on the RDP row.](media/sapcal_connectrdpdialog.png "Connect via RDP")
+    ![The Connect to the instance dialog displays with the Connect link highlighted on the RDP row.](media/rdp-connect.png "Connect via RDP")
 
 3. Open the downloaded RDP file and log into the instance using the username `Administrator` and the password used when deploying the instance.
 
-4. From the desktop double-click the **SAP Dev Tools for Eclipse** PowerShell icon to install Eclipse. Accept the license agreement. Installation can take up to 10 minutes, please be patient.
+    >**Note:** Minimize the **Welcome** page.
+
+4. From the desktop double-click the **SAP Dev Tools for Eclipse** PowerShell icon to install Eclipse. Accept the Terms and Conditions agreement. Installation can take up to 10 minutes, please be patient.
 
     >**Note**: The Eclipse IDE will open while the SAP tools are installed, let it run to completion.
+
+    >**Note:** Once the installation complete, select **OK**.
 
    ![The SAP Dev Tools for Eclipse icon.](media/sapvm_pstoolsinstallicon.png "SAP Dev Tools for Eclipse icon")
 
@@ -137,13 +165,17 @@ This task demonstrates creating a sales view in SAP and exposing it as an OData 
 
     ![SAP Dev Tools for Eclipse icon.](media/sapvm_eclipseicon.png "SAP Dev Tools for Eclipse icon")
 
+    >**Note:** If you see a dialog box for the secure storage indicates Password hint required, select **No**.
+
+    ![SAP Dev Tools for Eclipse icon.](media/securestorage.png "SAP Dev Tools for Eclipse icon")
+
 6. In the **Select a directory as workspace** dialog, keep the default value and select **Launch**. Launching will take a few moments, please be patient.
 
     >**Note**: You may see a dialog for the workspace that indicates an older workspace, if this is the case, accept the current workspace instead of creating a new one.
 
     ![The Select a directory as workspace dialog displays with the Launch button highlighted.](media/sapvm_hanastudioworkspace_prompt.png "Select a directory as workspace dialog")
 
-7. Change the perspective to development by expanding the **Window** menu, **Perspective**, **Open Perspective**, then selecting the **SAP HANA Development** item.
+7. Change the perspective to development by expanding the **Window (1)** menu, **Perspective (2)**, **Open Perspective (3)**, then selecting the **SAP HANA Development (4)** item.
 
     ![HANA Studio displays with the Window, Perspective, Open Perspective menu items expanded and the SAP HANA Development item is selected.](media/sapvm_changeperspective.png "Change to development perspective")
 
@@ -155,11 +187,11 @@ This task demonstrates creating a sales view in SAP and exposing it as an OData 
 
     ![A logon dialog displays with the Password text box and OK button highlighted.](media/sapvm_logins4h_ext.png "Logon dialog")
 
-10. Expand the **File** menu, then **New** and select the **Other** item.
+10. Expand the **File (1)** menu, then **New (2)** and select the **Other (3)** item.
 
     ![The File and New menus are expanded with the Other item selected.](media/sapvm_file_new_other.png "Create new file")
 
-11. In the **Select a wizard** dialog, search for `Data Definition`. Select the **Data Definition** item beneath the **ABAP / Core Data Services** folders. Select **Next**.
+11. In the **Select a wizard** dialog, search for `Data Definition`. Select the **Data Definition (1)** item beneath the **ABAP / Core Data Services (2)** folders. Select **Next (3)**.
 
     ![The Select a wizard dialog displays with Data Definition entered in the search box and the Data Definition item selected from the search results. The Next button is highlighted.](media/sapvm_newdatadefinition.png "New Data Definition")
 
@@ -168,8 +200,8 @@ This task demonstrates creating a sales view in SAP and exposing it as an OData 
     | Field | Value |
     |-------|-------|
     | Project | Retain the default **S4H_100_s4h_ext_en**. |
-    | Package | Enter `$TMP`. |
-    | Name | Enter `ZBD_ISalesDocument_E`. |
+    | Package | Enter `$TMP` |
+    | Name | Enter `ZBD_ISalesDocument_E` |
     | Description | Enter `ZBD_ISalesDocument_E` |
 
     ![The New Data Definition dialog displays populated with the preceding values.](media/sapvm_datadefinitionform.png "New Data Definition dialog")
@@ -235,7 +267,7 @@ This task demonstrates creating a sales view in SAP and exposing it as an OData 
 
     ![The ZBD_ISALESDOCUMENT_E view displays a context menu with the activate item selected.](media/sapvm_activatezbd_isalesdocument_e.png "Activate the ZBD_ISALESDOCUMENT_E view")
 
-15. Right-click in the whitespace of the **ZBD_ISALESDOCUMENT_E** view once more, this time select **Open With** and choose **Data Preview**. This will display the raw data of the view. After reviewing the data, you can close this preview.
+15. Right-click in the whitespace of the **ZBD_ISALESDOCUMENT_E** view once more, this time select **Open With (1)** and choose **Data Preview (2)**. This will display the raw data of the view. After reviewing the data, you can close this preview.
 
     ![The ZBD_ISALESDOCUMENT_E view displays a context menu with the Open With and Data Preview items selected.](media/sapvm_preview_menuitem_zbd_isalesdocument_e.png "Preview ZBD_ISALESDOCUMENT_E view")
 
@@ -275,8 +307,8 @@ This task demonstrates creating a sales view in SAP and exposing it as an OData 
 
     | Field | Value |
     |-------|-------|
-    | System Alias | Enter `Local`. |
-    | Technical Service Name | Enter `ZBD_*`. |
+    | System Alias | Enter `Local` |
+    | Technical Service Name | Enter `ZBD_*` |
 
     ![The filter form displays populated with the preceding values.](media/sapvm_sapgui_svcfilterform.png "Filter form")
 
@@ -304,7 +336,7 @@ This task demonstrates creating a sales view in SAP and exposing it as an OData 
 
     ![The ICF Nodes pane displays with the SAP Gateway Client button highlighted on the toolbar menu.](media/sapvm_sapgui_icfnodessapgatewayclientbutton.png "ICF Nodes SAP Gateway Client")
 
-30. On the **SAP Gateway Client** window, select the **Execute** button from the toolbar menu. This tests the OData service. Verify in the **HTTP Response** pane that the status code indicates **200**.
+30. On the **SAP Gateway Client** window, select the **Execute** button from the toolbar menu. This tests the OData service, check the **Remember My Decision** checkbox and select **Allow**. Verify in the **HTTP Response** pane that the status code indicates **200**.
 
     ![The SAP Gateway Client window displays with the Execute button highlighted on the toolbar menu and the HTTP Response status code indicating 200.](media/sapvm_sapgui_sapgatewayclientexecution.png "SAP Gateway Client")
 
@@ -312,7 +344,7 @@ This task demonstrates creating a sales view in SAP and exposing it as an OData 
 
     ![The SAP Gateway window displays with the EntitySets button highlighted.](media/sapvm_sapgui_sapgatewaycliententitysetsbutton.png "EntitySets")
 
-32. On the **EntitySets** dialog, double-click the **ZBD_I_Salesdocument_E** item.
+32. On the **EntitySets** dialog, double-click the **ZBD_I_Salesdocument_E** item, check the **Remember My Decision** checkbox and select **Allow**.
 
     ![The Entity Sets dialog displays with teh ZBD_I_Salesdocument_E item highlighted.](media/sapvm_sapgui_entitysetsdialog.png "EntitySets dialog")
 
@@ -334,20 +366,20 @@ A service is available that allows for the update of a Business Partner record. 
 
     ![The SAP GUI toolbar displays with the transaction combo box highlighted. The n/IFWND/MAINT_SERVICE transaction is entered in the transaction combo box.](media/sapvm_sapgui_transactioncombobox.png "SAP GUI transaction combo box")  
 
-2. From the toolbar menu of the **Activate and Maintain Services** window, select the **Add Service** button.
+<!-- 2. From the toolbar menu of the **Activate and Maintain Services** window, select the **Add Service** button.
 
     ![A portion of the Activate and Maintain Services toolbar displays with the Add service button highlighted.](media/sapvm_sapgui_maintsvcs_addservicebutton.png "Add Service")
 
-3. Populate the **Add Selected Services** filter form as follows, and press <kbd>Enter</kbd>.
+3. Populate the **Add Selected Services** filter form as follows, and press <kbd>Enter</kbd>. Close the **Information** pop-up.
 
     | Field | Value |
     |-------|-------|
-    | System Alias | Enter `Local`. |
-    | Technical Service Name | Enter `*GWSAMPLE*`. |
+    | System Alias | Enter `Local` |
+    | Technical Service Name | Enter `*GWSAMPLE*` |
 
-    ![The filter pane displays with the preceding values populated.](media/sapui_addsvcfilter_gwsample.png "Add Service Filter Pane")
+    ![The filter pane displays with the preceding values populated.](media/sapui_addsvcfilter_gwsample.png "Add Service Filter Pane") -->
 
-4. From the list of results, select the **/IWBEP/GWSAMPLE_BASIC** item.
+<!-- 4. From the list of results, select the **/IWBEP/GWSAMPLE_BASIC** item.
 
     ![The Select Backend Services pane displays with the /IWBEP/GWSAMPLE_BASIC item highlighted.](media/sapui_selectbackendsvc_gwsample.png "Select Backend Services pane")
 
@@ -357,81 +389,76 @@ A service is available that allows for the update of a Business Partner record. 
 
 6. On the **Add Selected Services** screen, select the **Back** button on the toolbar menu. This will open the **Activate and Maintain Services** window once more.
 
-    ![A portion of the Add Selected Services toolbar displays with the Back button highlighted.](media/sapvm_sapgui_backbuttonaddservices_gwsample.png "Back button")
+    ![A portion of the Add Selected Services toolbar displays with the Back button highlighted.](media/sapvm_sapgui_backbuttonaddservices_gwsample.png "Back button") -->
 
-7. On the **Activate and Maintain Services** screen, select the **Filter** button from the toolbar menu.
+1. On the **Activate and Maintain Services** screen, select the **Filter** button from the toolbar menu.
 
     ![A portion of the Activate and Maintain Services toolbar menu displays with the Filter button highlighted](media/sapvm_sapgui_activateandmaintainfilterbutton.png "Filter services")
 
-8. In the **Filter for Service Catalog** dialog, type `*GWSAMPLE*` in the **Technical Service Name** field and press <kbd>Enter</kbd>.
+1. In the **Filter for Service Catalog** dialog, type `*GWSAMPLE*` in the **Technical Service Name** field and press <kbd>Enter</kbd>.
 
     ![The Filter for Service Catalog displays with *GWSAMPLE* entered in the Technical Service Name field.](media/sapvm_sapgui_svccatalogfilterdialog_gwsample.png "Filter for Service Catalog dialog")
 
-9. This action filters the **Activate and Maintain Services** screen to a single service. In the **ICF Nodes** pane, select the **SAP Gateway Client** button. If the **SAP GUI Security** dialog displays, check the **Remember My Decision** checkbox and select **Allow**.
+1. This action filters the **Activate and Maintain Services** screen to a single service. In the **ICF Nodes** pane, select the **SAP Gateway Client** button. If the **SAP GUI Security** dialog displays, check the **Remember My Decision** checkbox and select **Allow**.
 
     ![The ICF Nodes pane displays with the SAP Gateway Client button highlighted on the toolbar menu.](media/sapvm_sapgui_icfnodessapgatewayclientbutton.png "ICF Nodes SAP Gateway Client")
 
-10. On the **SAP Gateway Client** window, select the **Entity Set** button on the toolbar menu.
+1. On the **SAP Gateway Client** window, select the **Entity Set** button on the toolbar menu.
 
     ![The SAP Gateway window displays with the EntitySets button highlighted.](media/sapvm_sapgui_sapgatewaycliententitysetsbutton_gwsample.png "EntitySets")
 
-11. On the **EntitySets** dialog, double-click the **BusinessPartnerSet** item.
+1. On the **EntitySets** dialog, double-click the **BusinessPartnerSet** item.
 
     ![The Entity Sets dialog displays with the BusinessPartnerSet item highlighted.](media/sapvm_sapgui_entitysetsdialog_gwsample.png "EntitySets dialog")
 
-12. On the **SAP Gateway Client** window, select **Execute**. This service retrieves the sales documents via the OData endpoint. Verify the HTTP Response status code value is **200**.
+1. On the **SAP Gateway Client** window, select **Execute**. This service retrieves the sales documents via the OData endpoint. Verify the HTTP Response status code value is **200**.
 
     ![The SAP Gateway Client window displays with the Execute button highlighted. The HTTP Response status code is 200.](media/sapvm_sapgui_entitysetodataresult_gwsample.png "EntitySet OData service execution results")
 
-13. On the **SAP Gateway Client** window, select the **Back** button to return to the **Activate and Maintain Services** screen.
+1. On the **SAP Gateway Client** window, select the **Back** button to return to the **Activate and Maintain Services** screen.
 
-14. On the **ICF Node** pane, select the **Call Browser** button. This will bring up the **Security GUI** dialog once more. Copy the URL value for future use in the lab. After recording the value, close the dialog by selecting the **X** button on the upper right corner of the dialog window. This URL is the service endpoint for the Business Partner OData service.
+1. On the **ICF Node** pane, select the **Call Browser** button. This will bring up the **Security GUI** dialog once more. Copy the URL value for future use in the lab. After recording the value, close the dialog by selecting the **X** button on the upper right corner of the dialog window. This URL is the service endpoint for the Business Partner OData service.
 
     ![The SAP GUI Security dialog displays with the URL value highlighted.](media/sapvm_sapgui_sapguisecuritydialog_gwsample.png "Service endpoint")
 
-15. Next, obtain the IP Address for the MCWSAP-SAP1 virtual machine. In the [Azure Portal](https://portal.azure.com), enter `MCWSAP-SAP1` in the search box located in the top toolbar and select the **MCWSAP-SAP1** virtual machine from the filtered list of resources.
+1. Next, obtain the IP Address for the MSSAP-SAP1 virtual machine. In the [Azure Portal](https://portal.azure.com), enter `MSSAP-SAP1` (1) in the search box located in the top toolbar and select the **MSSAP-SAP1 (2)** virtual machine from the filtered list of resources.
 
-    ![The Azure Portal toolbar search box displays with MCWSAP-SAP1 text and the MCWSAP-SAP1 virtual machine resource selected.](media/ap_searchmcwsapsap1_vm.png "Search for VM")
+    ![The Azure Portal toolbar search box displays with MCWSAP-SAP1 text and the MCWSAP-SAP1 virtual machine resource selected.](media/virtualmachinesap.png "Search for VM")
 
-16. On the MCWSAP-SAP1 virtual machine Overview screen, copy the IP address and record it for future use.
+1. On the **MSSAP-SAP1** virtual machine Overview screen, copy the IP address and record it for future use.
 
-    ![The MCWSAP-SAP1 Virtual machine screen displays with the Public IP address highlighted.](media/ap_mcwsapsap1vm_ip.png "MCWSAP-SAP1 Virtual Machine Overview")
+    ![The MCWSAP-SAP1 Virtual machine screen displays with the Public IP address highlighted.](media/publicip.png "MCWSAP-SAP1 Virtual Machine Overview")
 
     >**Note**: This IP address can change, it does not have a static IP. Please obtain the current IP address.
 
-17. Open Postman on your local machine and select **Import** from the Workspace toolbar to import a collection.
+1. Open Postman on your local machine and select **Import** from the Workspace toolbar to import a collection.
 
     ![The Postman interface displays with the Import button highlighted.](media/pm_importcollection.png "Import Collection")
 
-18. On the Import dialog, select the **Link** tab, then enter the following URL and select **Continue**.
+1. On the Import dialog, then enter the following URL.
 
     ```text
-    https://raw.githubusercontent.com/microsoft/MCW-SAP-plus-extend-and-innovate-with-data-and-ai/main/Hands-on%20lab/Resources/postman/SAP%20MCW.postman_collection.json
+    https://raw.githubusercontent.com/CloudLabsAI-Azure/SAP-plus-extend-and-innovate-with-Data-and-AI/MS-Innovation/Hands-on%20lab/Resources/postman/SAP%20MCW.postman_collection.json
     ```
 
-    ![The Import dialog displays with the Link tab highlighted and the above URL entered above the Continue button.](media/pm_importlink.png "Import Collection via Link")
 
-19. On the next screen, select **Import**.
-
-    ![The Import dialog shows the collection to be imported. The Import button is highlighted.](media/pm_importcollection2.png "Import Collection")
-
-20. In the Postman Collections list, select the **SAP MCW** collection. Select the **Variables** tab and enter the MCWSAP-SAP1 IP address in the **INITIAL VALUE** and **CURRENT VALUE** column. Select **Save** on the collection.
+1. In the Postman Collections list, select the **SAP MCW** collection. Select the **Variables** tab and enter the MCWSAP-SAP1 IP address in the **INITIAL VALUE** and **CURRENT VALUE** column. Select **Save** on the collection.
 
     ![The Variables for the SAP MCW collection displays with the initial value and current value set to an IP address. The Save button is highlighted.](media/pm_enteripvarsincollection.png "Set ip-address values")
 
-21. Expand the SAP MCW Collection and select the **GET Company** request. Select **Send**. Notice how the CompanyName is currently **Office Line Prag**.
+1. Expand the SAP MCW Collection and select the **GET Company** request. Select **Send**. Notice how the CompanyName is currently **Office Line Prag**.
 
     ![The SAP MCW Collection is expanded with the GET Company request selected. The Send button is highlighted. The CompanyName of Office Line Prag is highlighted in the response.](media/pm_get_officelineprag.png "Get Company Request - Office Line Prag Company Name")
 
-22. In the SAP MCW Collection, select the **Patch Company** request and select **Send**. The response should show the status of **204 No Content**.
+1. In the SAP MCW Collection, select the **Patch Company** request and select **Send**. The response should show the status of **204 No Content**.
 
     ![The Patch Company request displays with the Send button highlighted. The status indicates 204 No Content.](media/pm_patchcompanyname.png "PATCH company")
 
-23. Return to the **GET Company** request and select **Send**. Notice how the CompanyName now shows **Bigmart**.
+1. Return to the **GET Company** request and select **Send**. Notice how the CompanyName now shows **Bigmart**.
 
     ![The GET Company request displays with the Send button highlighted and the CompanyName value set to Bigmart in the response"](media/pm_getcompany_bigmart.png "CompanyName updated to Bigmart")
 
-24. Retain this collection in Postman for use during the hands-on lab.
+1. Retain this collection in Postman for use during the hands-on lab.
 
 ### Task 6: Prepare payment data in Cosmos DB
 
@@ -439,11 +466,9 @@ Raw payment data is available in Azure Data Lake storage. This exercise walks th
 
 #### Step 1: Create linked services in Azure Synapse Analytics
 
-1. In the [Azure Portal](https://portal.azure.com), open the **mcw_sap_plus_extend_and_innovate** resource group.
+1. In the [Azure Portal](https://portal.azure.com), open the **SAPCAL-P2008807814-285381364** resource group.
 
 2. From the list of resources, locate and select the Synapse Workspace item named **sapdatasynws{SUFFIX}**.
-
-    ![The resource group list displays with the Synapse Workspace item highlighted.](media/ap_rg_synapseworkspace.png "Locate Synapse Workspace")
 
 3. On the Synapse workspace screen, select **Open Synapse Studio**.
 
@@ -465,7 +490,7 @@ Raw payment data is available in Azure Data Lake storage. This exercise walks th
 
     | Field | Value |
     |-------|-------|
-    | Name | Enter `datalake`. |
+    | Name | Enter `datalake` |
     | Authentication type | Select **System Assigned Managed Identity**. |
     | Azure subscription | Select your Azure subscription. |
     | Storage account name | Select **sapadls{SUFFIX}**. |
@@ -480,7 +505,7 @@ Raw payment data is available in Azure Data Lake storage. This exercise walks th
 
     | Field | Value |
     |-------|-------|
-    | Name | Enter `payment_data_cosmosdb`. |
+    | Name | Enter `payment_data_cosmosdb` |
     | Authentication type | Select **Account key**. |
     | Azure subscription | Select your Azure subscription. |
     | Azure Cosmos DB account name | Select **sap-mcw-cosmos-{SUFFIX}**. |
@@ -500,7 +525,7 @@ The source data is payment data that is located in Azure Data Lake Storage Gen2 
 
    ![The left menu of Synapse Studio displays with the Data hub highlighted.](media/ss_datahub_menu.png "Data hub")
 
-2. From the center pane, select the **Linked** tab. Expand the **Azure Data Lake Storage Gen2** item, followed by the **datalake** item, and select the **payment-data-csv** container. From the **payment-data-csv** tab, select the **paymentData_CAL2021.csv** file. Next, select **New integration dataset** from the toolbar menu.
+2. From the center pane, select the **Linked (1)** tab. Expand the **Azure Data Lake Storage Gen2 (2)** item, followed by the **datalake (3)** item, and select the **payment-data-csv (4)** container. From the **payment-data-csv** tab, select the **paymentData_CAL2021.csv (5)** file. Next, select **New integration dataset (6)** from the toolbar menu.
 
     >**Note**: If you do not see **datalake** in the **Azure Data Lake Storage Gen2** items, you may need to refresh.
 
@@ -528,16 +553,14 @@ The source data is payment data that is located in Azure Data Lake Storage Gen2 
 
     | Field | Value |
     |-------|-------|
-    | Name | Enter `payments_cosmosdb`. |
-    | Linked service | Select **payment_data_cosmosdb**. |
-    | Container | Select **paymentData**. |
-    | Import schema | Select **None**. |
+    | Name | Enter `payments_cosmosdb` |
+    | Linked service | Select **payment_data_cosmosdb** |
+    | Container | Select **items** |
+    | Import schema | Select **None** |
 
     ![The Set properties blade displays populated with the preceding values.](media/ss_cosmosdbintegrationdataset_setpropertiesform.png "Set Cosmos DB integration dataset properties")
 
 9. On the Synapse Studio toolbar menu, select **Publish all**. Select **Publish** on the verification blade.
-
-    ![The Synapse Studio toolbar menu displays with the Publish all button highlighted.](media/ss_publishall.png "Publish all")
 
 #### Step 3: Create pipeline to ingest payment data into Cosmos DB
 
@@ -573,11 +596,9 @@ The source data is payment data that is located in Azure Data Lake Storage Gen2 
 
     ![Synapse Studio displays with the Monitor hub selected from the left menu, the Pipeline runs selected in the center panel, and the payment pipeline listed as in progress. The Refresh button is highlighted.](media/ss_monitorpaymentspipeline.png "Monitor hub")
 
-9. Verify the data by returning to the Azure Portal, opening the **mcw_sap_plus_extend_and_innovate** resource group, then locating and opening the **sap-mcw-cosmos-{SUFFIX}** Cosmos DB resource.
+9. Verify the data by returning to the Azure Portal, opening the **sap-mcw-cosmos-<inject key="DeploymentID" enableCopy="false"/>** resource group, then locating and opening the **sap-mcw-cosmos-<inject key="DeploymentID" enableCopy="false"/>** Cosmos DB resource.
 
-    ![A portion of the mcw_sap_plus_extend_and_innovate resources displays with the Cosmos DB resource selected.](media/portal_cosmosdb_resource.png "Cosmos DB resource")
-
-10. On the Azure Cosmos DB account screen, select **Data Explorer** from the left menu. In the SQL API panel, expand the **SAPS4D** and **paymentData** items. Select **Items**, then choose an item from the **paymentData** tab. This will display the contents of the selected document for review.
+10. On the Azure Cosmos DB account screen, select **Data Explorer** from the left menu. In the SQL API panel, expand the **SAPS4D** and **Items**. Select **Items** tab. This will display the contents of the selected document for review.
 
     ![The Azure Cosmos DB account screen displays with the Data Explorer item highlighted in the left menu. In the SQL API pane, the SAPS4D database is expanded along with the paymentData collection. The items option is selected beneath the collection. One document is highlighted in the paymentData tab and the screen displays the selected document's content.](media/portal_cosmosdb_paymentdatapreview.png "View document in Cosmos DB")
 
