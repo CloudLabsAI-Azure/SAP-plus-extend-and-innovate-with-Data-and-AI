@@ -298,7 +298,7 @@ This task demonstrates creating a sales view in SAP and exposing it as an OData 
 
     ![The filter results display with the ZBD_I_SALESDOCUMENT_E_CDS item highlighted.](media/sapvm_sapgui_svcresults.png "Filter results list")
 
-25. In the **Add Service** dialog, select the **Local Object** button located in the **Creation Information** section. This will populate the **$TMP** value, and press <kbd>Enter</kbd>. An information dialog indicating success will display, dismiss this dialog.
+25. In the **Add Service** dialog, select the **Local Object** button located in the **Creation Information** section. This will populate the **$TMP** value, and press <kbd>Enter</kbd>. An information dialog indicating success will display, and dismiss this dialog.
 
     ![The Add Service dialog displays with the Local Object button highlighted.](media/sapvm_sapgui_addservicedialog.png "Add Service dialog")
 
@@ -346,7 +346,7 @@ A service is available that allows for the update of a Business Partner record. 
 
 1. In the SAP UI, access the Activate and Maintain Service transaction by typing `/n/IWFND/MAINT_SERVICE` in the toolbar menu transaction combo box and press <kbd>Enter</kbd>. This opens the **Activate and Maintain Services** window.
 
-    ![The SAP GUI toolbar displays with the transaction combo box highlighted. The n/IFWND/MAINT_SERVICE transaction is entered in the transaction combo box.](media/sapvm_sapgui_transactioncombobox.png "SAP GUI transaction combo box")  
+    ![A portion of the Activate and Maintain Services toolbar displays with the Add service button highlighted.](media/sapvm_sapgui_transactioncombobox.png "Add Service")
 
 2. From the toolbar menu of the **Activate and Maintain Services** window, select the **Add Service** button.
 
@@ -361,7 +361,7 @@ A service is available that allows for the update of a Business Partner record. 
 
     ![The filter pane displays with the preceding values populated.](media/sapui_addsvcfilter_gwsample.png "Add Service Filter Pane")
 
-<!-- 4. From the list of results, select the **/IWBEP/GWSAMPLE_BASIC** item.
+    <!-- 4. From the list of results, select the **/IWBEP/GWSAMPLE_BASIC** item.
 
     ![The Select Backend Services pane displays with the /IWBEP/GWSAMPLE_BASIC item highlighted.](media/sapui_selectbackendsvc_gwsample.png "Select Backend Services pane")
 
@@ -423,8 +423,7 @@ A service is available that allows for the update of a Business Partner record. 
     https://raw.githubusercontent.com/CloudLabsAI-Azure/SAP-plus-extend-and-innovate-with-Data-and-AI/MS-Innovation/Hands-on%20lab/Resources/postman/SAP%20MCW.postman_collection.json
     ```
 
-
-19. In the Postman Collections list, select the **SAP MCW** collection. Select the **Variables** tab and enter the MCWSAP-SAP1 IP address in the **INITIAL VALUE** and **CURRENT VALUE** column. Select **Save** on the collection.
+19. In the Postman Collections list, select the **SAP MCW** collection. Select the **Variables** tab and enter the MCWSAP-SAP1 IP address in the **INITIAL VALUE** and **CURRENT VALUE** columns. Select **Save** on the collection.
 
     ![The Variables for the SAP MCW collection displays with the initial value and current value set to an IP address. The Save button is highlighted.](media/pm_enteripvarsincollection.png "Set ip-address values")
 
@@ -460,7 +459,7 @@ Raw payment data is available in Azure Data Lake storage. This exercise walks th
 
     ![Synapse Studio displays with the Manage hub selected in the left menu.](media/ss_managehub_menu.png "Manage hub")
 
-5. Beneath the **External connections** section, select **Linked services**. Then select **+ New** from the Linked services toolbar menu.
+5. Beneath the **External connections** section, select **Linked services**. Then select **+ New** from the Linked Services toolbar menu.
 
     ![The Manage Hub displays with the Linked services item selected. The + New button is highlighted on the Linked services screen toolbar.](media/ss_newlinkedservicemenu.png "New Linked service")
 
@@ -544,7 +543,7 @@ The source data is payment data that is located in Azure Data Lake Storage Gen2 
 
 9. On the Synapse Studio toolbar menu, select **Publish all**. Select **Publish** on the verification blade.
 
-#### Step 3: Create pipeline to ingest payment data into Cosmos DB
+#### Step 3: Create a pipeline to ingest payment data into Cosmos DB
 
 1. In Synapse Studio, select the **Integrate** hub from the left menu. Then from the center pane menu, expand the **+** button and choose **Pipeline**.
 
@@ -570,17 +569,17 @@ The source data is payment data that is located in Azure Data Lake Storage Gen2 
 
     ![The Synapse Studio toolbar menu displays with the Publish all button highlighted.](media/ss_publishall.png "Publish all")
 
-7. Once published, expand the **Add trigger** toolbar item and choose **Trigger now**. Select **OK** on the Pipeline run blade. This will run the pipeline to copy the payments data to Cosmos DB.
+7. Once published, expand the **Add trigger** toolbar item and choose **Trigger now**. Select **OK** on the Pipeline run blade. This will run the pipeline to copy the payment data to Cosmos DB.
 
     ![The payments pipeline Add trigger item is expanded with the Trigger now item selected.](media/ss_paymentpipeline_triggernow.png "Trigger payments pipeline")
 
-8. In Synapse Studio, select the **Monitor** hub. Beneath the Integration header of the center pane, select **Pipeline runs**. Monitor the payments pipeline run until it has completed. The Refresh button in the toolbar may be used to update the monitoring table.
+8. In Synapse Studio, select the **Monitor** hub. Beneath the Integration header of the center pane, select **Pipeline runs**. Monitor the payments pipeline run until it has been completed. The Refresh button in the toolbar may be used to update the monitoring table.
 
     ![Synapse Studio displays with the Monitor hub selected from the left menu, the Pipeline runs selected in the center panel, and the payment pipeline listed as in progress. The Refresh button is highlighted.](media/ss_monitorpaymentspipeline.png "Monitor hub")
 
 9. Verify the data by returning to the Azure Portal, opening the **sap-mcw-cosmos-<inject key="DeploymentID" enableCopy="false"/>** resource group, then locating and opening the **sap-mcw-cosmos-<inject key="DeploymentID" enableCopy="false"/>** Cosmos DB resource.
 
-10. On the Azure Cosmos DB account screen, select **Data Explorer** from the left menu. In the SQL API panel, expand the **SAPS4D** and **Items**. Select **Items** tab. This will display the contents of the selected document for review.
+10. On the Azure Cosmos DB account screen, select **Data Explorer** from the left menu. In the SQL API panel, expand the **SAPS4D** and **Items**. Select the **Items** tab. This will display the contents of the selected document for review.
 
     ![The Azure Cosmos DB account screen displays with the Data Explorer item highlighted in the left menu. In the SQL API pane, the SAPS4D database is expanded along with the paymentData collection. The items option is selected beneath the collection. One document is highlighted in the paymentData tab and the screen displays the selected document's content.](media/portal_cosmosdb_paymentdatapreview.png "View document in Cosmos DB")
 
