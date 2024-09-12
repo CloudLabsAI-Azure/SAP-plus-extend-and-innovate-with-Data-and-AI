@@ -77,7 +77,7 @@ Duration: 3 - 4 hours
 
     ![The MCW SAP instance displays with a status of Active.](media/active.png "SAP CAL Instance listing")
 
-<!-- ### Task 3: Deploy the Azure Resources
+### Task 3: Deploy the Azure Resources
 
 This lab utilizes Terraform Infrastructure as Code to deploy the necessary Azure resources.
 
@@ -121,7 +121,7 @@ This lab utilizes Terraform Infrastructure as Code to deploy the necessary Azure
     terraform apply
     ```
 
-8. Close the Cloud Shell panel if desired. -->
+8. Close the Cloud Shell panel if desired.
 
 ### Task 3: Prepare sales data in SAP
 

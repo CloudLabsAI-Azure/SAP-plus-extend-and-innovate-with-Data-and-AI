@@ -25,7 +25,7 @@ Duration: 3 - 4 hours
 1. Select **Register** for creating a new account using the following details:
 
     - **First Name**: odluser
-    - **Last Name**: <inject key="Deployment-id" enableCopy="false"></inject>
+    - **Last Name**: <inject key="DeploymentID" enableCopy="false"></inject>
     - **Email**: <inject key="AzureAdUserEmail"></inject>
     - **Phone**: Enter any random number
     - **Country**: United States
@@ -35,7 +35,7 @@ Duration: 3 - 4 hours
     - **City**: Anytown
     - **ZIP/Postal Code**: 12345
     - **Country/Region**: United States
-    - - Select **Continue**
+    - Select **Continue**
     - **Password**: <inject key="AzureAdUserPassword"></inject>
     - **Re-Enter Password**: <inject key="AzureAdUserPassword"></inject>
     - Select **Register**
@@ -81,7 +81,7 @@ Duration: 3 - 4 hours
 
     >**Note:** Select **Proceed** on the **Warning** pop-up.
 
-1. On the **Private Key** modal, select to **Store** the private key in the SAP Cloud Appliance Library. Check the **Encrypt the private key with a password** and enter a password. Type the password once more in the **Retype Password** textbox. Select the **Download** button to download the encrypted key.
+1. On the **Private Key** modal, select to **Store** the private key in the SAP Cloud Appliance Library. Check the **Encrypt the private key with a password** and enter a **Password**: <inject key="AzureAdUserPassword"></inject>. Type the password once more in the **Retype Password** textbox. Select the **Download** button to download the encrypted key.
 
     ![The Private Key dialog displays with the password fields filled in and the Store and Download buttons highlighted.](media/sapcal_privatekey.png "Private Key dialog")
 
@@ -91,53 +91,63 @@ Duration: 3 - 4 hours
 
     ![The MCW SAP instance displays with a status of Active.](media/active.png "SAP CAL Instance listing")
 
-<!-- ### Task 3: Deploy the Azure Resources
+### Task 3: Deploy the Azure Resources
 
 This lab utilizes Terraform Infrastructure as Code to deploy the necessary Azure resources.
 
-1. In the Azure portal, select the cloud shell button from the upper-right toolbar menu options.
+1. Use the **[\>_]** button to the right of the search bar at the top of the page to create a new Cloud Shell in the Azure portal, and select ***PowerShell*** environment.
+    
+    ![Azure portal with a cloud shell pane](./media/cloud-shell1.png)
 
-    ![The upper right toolbar displays with the cloud shell button highlighted.](media/cloudshell_icon.png "Cloud Shell")
+    ![Azure portal with a cloud shell pane](./media/cl2.png)
+   
+1. In the **Getting Started** menu,choose **No storage account required (1)**,select your default **Subscription (2)** from the dropdown and click on **Apply (3)**
+
+   ![Azure portal with a cloud shell pane](./media/cl3.png)
+
+1. Note that Cloud Shell can be resized by dragging the separator bar at the top of the pane, or by using the—, **&#9723;**, and **X** icons at the top right of the pane to minimize, maximize, and close the pane. For more information about using the Azure Cloud Shell, see the [Azure Cloud Shell documentation](https://docs.microsoft.com/azure/cloud-shell/overview).
   
-2. In the Cloud Shell pane, ensure the PowerShell language is selected. Clone the source code repository by issuing the following command.
+1. In the Cloud Shell pane, ensure the PowerShell language is selected. Clone the source code repository by issuing the following command.
 
     ```PowerShell
-    git clone https://github.com/microsoft/MCW-SAP-plus-extend-and-innovate-with-data-and-ai.git
+    git clone https://github.com/CloudLabsAI-Azure/SAP-plus-extend-and-innovate-with-Data-and-AI.git
     ```
 
-3. Navigate to the Terraform directory by executing the following command:
+1. Navigate to the Terraform directory by executing the following command:
 
     ```PowerShell
-    cd 'MCW-SAP-plus-extend-and-innovate-with-data-and-ai/Hands-on lab/Resources/terraform'
+    cd 'SAP-plus-extend-and-innovate-with-Data-and-AI/Hands-on lab/Resources/terraform'
     ```
 
-4. Set the desired subscription by executing the following code, replace **SUBSCRIPTION_ID** with the value you recorded earlier in the lab setup.
+1. Set the desired subscription by executing the following code, replace **SUBSCRIPTION_ID** with the value you recorded earlier in the lab setup.
 
     ```PowerShell
     az account set --subscription SUBSCRIPTION_ID
     ```
 
-5. Establish a user context by executing the following command. Follow the prompts to authenticate to the Azure Cloud Shell.
+1. Establish a user context by executing the following command. Follow the prompts to authenticate to the Azure Cloud Shell.
 
     ```PowerShell
     az login
     ```
 
-6. Initialize the Terraform code using the following command:
+1. Initialize the Terraform code using the following command:
 
     ```PowerShell
     terraform init
     ```
 
-7. Deploy the lab resources by executing the following command. When prompted to perform the actions, type `yes` and press <kbd>Enter</kbd>. It will take approximately 15 minutes for the deployment to complete.
+1. Deploy the lab resources by executing the following command. When prompted to perform the actions, type `yes` and press <kbd>Enter</kbd>. It will take approximately 15 minutes for the deployment to complete.
 
     ```PowerShell
     terraform apply
     ```
 
-8. Close the Cloud Shell panel if desired. -->
+    >**Note:** Wait for the script to get finished.
 
-### Task 3: Prepare sales data in SAP
+1. Close the Cloud Shell panel if desired.
+
+### Task 4: Prepare sales data in SAP
 
 This task demonstrates creating a sales view in SAP and exposing it as an OData service for consumption by external services.
 
@@ -157,9 +167,9 @@ This task demonstrates creating a sales view in SAP and exposing it as an OData 
 
     >**Note**: The Eclipse IDE will open while the SAP tools are installed, let it run to completion.
 
-    >**Note:** Once the installation complete, select **OK**.
-
    ![The SAP Dev Tools for Eclipse icon.](media/sapvm_pstoolsinstallicon.png "SAP Dev Tools for Eclipse icon")
+
+   >**Note:** Once the installation complete, select **OK**.
 
 5. Once the installation has completed, double-click the **SAP Dev Tools for Eclipse** icon. This will open the Eclipse development environment.
 
@@ -417,9 +427,11 @@ A service is available that allows for the update of a Business Partner record. 
 
 1. On the **SAP Gateway Client** window, select the **Back** button to return to the **Activate and Maintain Services** screen.
 
-1. On the **ICF Node** pane, select the **Call Browser** button. This will bring up the **Security GUI** dialog once more. Copy the URL value for future use in the lab. After recording the value, close the dialog by selecting the **X** button on the upper right corner of the dialog window. This URL is the service endpoint for the Business Partner OData service.
+1. On the **ICF Node** pane, select the **Call Browser** button. This will bring up the **Security GUI** dialog once more. Copy the URL value for future use in the lab. After recording the value, close the dialog by selecting the **X** button on the upper right corner of the dialog window. This URL is the service endpoint for the Business Partner OData service. 
 
     ![The SAP GUI Security dialog displays with the URL value highlighted.](media/sapvm_sapgui_sapguisecuritydialog_gwsample.png "Service endpoint")
+
+    >**Note:** Minimize the RDP window.
 
 1. Next, obtain the IP Address for the MSSAP-SAP1 virtual machine. In the [Azure Portal](https://portal.azure.com), enter `MSSAP-SAP1` (1) in the search box located in the top toolbar and select the **MSSAP-SAP1 (2)** virtual machine from the filtered list of resources.
 
@@ -430,6 +442,19 @@ A service is available that allows for the update of a Business Partner record. 
     ![The MCWSAP-SAP1 Virtual machine screen displays with the Public IP address highlighted.](media/publicip.png "MCWSAP-SAP1 Virtual Machine Overview")
 
     >**Note**: This IP address can change, it does not have a static IP. Please obtain the current IP address.
+
+1. Open a new tab in the browser, download [Postman](https://www.postman.com/downloads/) for **Windows 64-bit**. Open the downloaded the file. It will start the installation process.
+
+1. Enter the following details:
+
+    - **Work email**: <inject key="AzureAdUserEmail"></inject>
+    - Select **Create Free account**
+    - **Username**: **odluser<inject key="DeploymentID" enableCopy="false"/>**
+    - **Password**: <inject key="AzureAdUserPassword"></inject>
+    - **Verify you are human**: Select the checkbox
+    - Select **Create Free Account**
+
+        >**Note:** Select **Open** on the pop-up.
 
 1. Open Postman on your local machine and select **Import** from the Workspace toolbar to import a collection.
 
@@ -442,7 +467,7 @@ A service is available that allows for the update of a Business Partner record. 
     ```
 
 
-1. In the Postman Collections list, select the **SAP MCW** collection. Select the **Variables** tab and enter the MCWSAP-SAP1 IP address in the **INITIAL VALUE** and **CURRENT VALUE** column. Select **Save** on the collection.
+1. In the Postman Collections list, select the **SAP MCW (1)** collection. Select the **Variables (2)** tab and enter the MCWSAP-SAP1 IP address in the **INITIAL VALUE (3)** and **CURRENT VALUE (4)** column. Select **Save (5)** on the collection.
 
     ![The Variables for the SAP MCW collection displays with the initial value and current value set to an IP address. The Save button is highlighted.](media/pm_enteripvarsincollection.png "Set ip-address values")
 
@@ -466,7 +491,7 @@ Raw payment data is available in Azure Data Lake storage. This exercise walks th
 
 #### Step 1: Create linked services in Azure Synapse Analytics
 
-1. In the [Azure Portal](https://portal.azure.com), open the **SAPCAL-P2008807814-285381364** resource group.
+1. Navigate to the [Azure Portal](https://portal.azure.com), open the **mcw_sap_plus_extend_and_innovate** resource group.
 
 2. From the list of resources, locate and select the Synapse Workspace item named **sapdatasynws{SUFFIX}**.
 
@@ -491,11 +516,11 @@ Raw payment data is available in Azure Data Lake storage. This exercise walks th
     | Field | Value |
     |-------|-------|
     | Name | Enter `datalake` |
-    | Authentication type | Select **System Assigned Managed Identity**. |
-    | Azure subscription | Select your Azure subscription. |
-    | Storage account name | Select **sapadls{SUFFIX}**. |
+    | Authentication type | Select **System-assigned managed identity** |
+    | Azure subscription | Select your Azure subscription |
+    | Storage account name | Select **sapadls{SUFFIX}** |
 
-    ![The New Linked service form for ADLS Gen2 displays populated with the preceding values.](media/ss_newlinkedservice_adlsgen2_form.png "New ADLS Gen2 Linked service form")
+    ![The New Linked service form for ADLS Gen2 displays populated with the preceding values.](media/ss_newlinkedservice_adlsgen2_form(1).png "New ADLS Gen2 Linked service form")
 
 8. On the Linked services screen, select **+ New** from the toolbar menu. On the New Linked service blade search for and select **Azure Cosmos DB for NoSQL**. Select **Continue**.
 
@@ -506,12 +531,12 @@ Raw payment data is available in Azure Data Lake storage. This exercise walks th
     | Field | Value |
     |-------|-------|
     | Name | Enter `payment_data_cosmosdb` |
-    | Authentication type | Select **Account key**. |
-    | Azure subscription | Select your Azure subscription. |
-    | Azure Cosmos DB account name | Select **sap-mcw-cosmos-{SUFFIX}**. |
-    | Database name | Select **SAPS4D**. |
+    | Authentication type | Select **Account key** |
+    | Azure subscription | Select your Azure subscription |
+    | Azure Cosmos DB account name | Select **sap-mcw-cosmos-{SUFFIX}** |
+    | Database name | Select **SAPS4D** |
 
-    ![The new Linked service form for Cosmos DB displays populated with the preceding values.](media/ss_newlinkedservice_cosmosdb_form.png "New Cosmos DB Linked service form")
+    ![The new Linked service form for Cosmos DB displays populated with the preceding values.](media/ss_newlinkedservice_cosmosdb_form(1).png "New Cosmos DB Linked service form")
 
 10. On the Synapse Studio toolbar menu, select **Publish all**. Select **Publish** on the verification blade.
 
@@ -555,7 +580,7 @@ The source data is payment data that is located in Azure Data Lake Storage Gen2 
     |-------|-------|
     | Name | Enter `payments_cosmosdb` |
     | Linked service | Select **payment_data_cosmosdb** |
-    | Container | Select **items** |
+    | Container | Select **paymentData** |
     | Import schema | Select **None** |
 
     ![The Set properties blade displays populated with the preceding values.](media/ss_cosmosdbintegrationdataset_setpropertiesform.png "Set Cosmos DB integration dataset properties")
@@ -596,9 +621,9 @@ The source data is payment data that is located in Azure Data Lake Storage Gen2 
 
     ![Synapse Studio displays with the Monitor hub selected from the left menu, the Pipeline runs selected in the center panel, and the payment pipeline listed as in progress. The Refresh button is highlighted.](media/ss_monitorpaymentspipeline.png "Monitor hub")
 
-9. Verify the data by returning to the Azure Portal, opening the **sap-mcw-cosmos-<inject key="DeploymentID" enableCopy="false"/>** resource group, then locating and opening the **sap-mcw-cosmos-<inject key="DeploymentID" enableCopy="false"/>** Cosmos DB resource.
+9. Verify the data by returning to the Azure Portal, opening the **sap-mcw-cosmos-{SUFFIX}** resource group, then locating and opening the **sap-mcw-cosmos-{SUFFIX}** Cosmos DB resource.
 
-10. On the Azure Cosmos DB account screen, select **Data Explorer** from the left menu. In the SQL API panel, expand the **SAPS4D** and **Items**. Select **Items** tab. This will display the contents of the selected document for review.
+10. On the Azure Cosmos DB account screen, select **Data Explorer** from the left menu. In the SQL API panel, expand the **SAPS4D** and **paymentData**. Select **Items** tab. This will display the contents of the selected document for review.
 
     ![The Azure Cosmos DB account screen displays with the Data Explorer item highlighted in the left menu. In the SQL API pane, the SAPS4D database is expanded along with the paymentData collection. The items option is selected beneath the collection. One document is highlighted in the paymentData tab and the screen displays the selected document's content.](media/portal_cosmosdb_paymentdatapreview.png "View document in Cosmos DB")
 

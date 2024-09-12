@@ -73,5 +73,7 @@ Welcome to your SAP Plus Extend and Innovate with Data and AI Workshop! We've pr
 
 
 2. Click **"Next"** from the bottom right corner to embark on your Lab journey!
+
+   >**Note:** Do not close the PowerShell in which logon task is running.
  
 ### Now you're all set to explore the powerful world of technology. Feel free to reach out if you have any questions along the way. Enjoy your workshop!
