@@ -8,23 +8,17 @@ This lab is intended for developers and IT professionals looking to explore SAP'
 
 This lab is designed to equip participants with hands-on experience in integrating SAP systems with AI technologies, enabling data extraction, processing, and the creation of intelligent applications. Participants will gain the skills to extend SAP functionality and drive business innovation using AI-powered solutions. By completing this lab, participants will learn to: 
 
-1. **Understand how to extend SAP systems with AI-driven solutions**:
-   - Gain a clear understanding of SAP’s extensibility through AI, learning how artificial intelligence can be applied to enhance core SAP functionalities. The lab will explore methods to automate processes, derive insights, and improve decision-making by integrating AI with existing SAP systems.
+1. **Understand how to extend SAP systems with AI-driven solutions**: Gain a clear understanding of SAP’s extensibility through AI, learning how artificial intelligence can be applied to enhance core SAP functionalities. The lab will explore methods to automate processes, derive insights, and improve decision-making by integrating AI with existing SAP systems.
 
-2. **Learn how to integrate SAP with external AI services**:
-   - This objective focuses on establishing connections between SAP and various AI services such as machine learning models, natural language processing (NLP), and computer vision APIs. Participants will follow step-by-step instructions to configure and enable seamless data flow between SAP environments and AI platforms like SAP AI Core, TensorFlow, or other third-party solutions.
+2. **Learn how to integrate SAP with external AI services**: This objective focuses on establishing connections between SAP and various AI services such as machine learning models, natural language processing (NLP), and computer vision APIs. Participants will follow step-by-step instructions to configure and enable seamless data flow between SAP environments and AI platforms like SAP AI Core, TensorFlow, or other third-party solutions.
 
-3. **Gain hands-on experience in data extraction and processing from SAP systems**:
-   - Users will learn how to extract relevant data from SAP systems, such as SAP S/4HANA, and preprocess this data to make it suitable for AI models. The lab will cover essential techniques for data wrangling, transformation, and preparation, ensuring smooth integration with AI algorithms.
+3. **Gain hands-on experience in data extraction and processing from SAP systems**: Users will learn how to extract relevant data from SAP systems, such as SAP S/4HANA, and preprocess this data to make it suitable for AI models. The lab will cover essential techniques for data wrangling, transformation, and preparation, ensuring smooth integration with AI algorithms.
 
-4. **Build intelligent applications using SAP data and AI technologies**:
-   - Through guided exercises, participants will develop AI-powered applications that interact with SAP data. These intelligent applications may include predictive analytics, automated recommendations, or advanced analytics dashboards. The goal is to demonstrate how AI can deliver meaningful insights and value to business processes using SAP as the data foundation.
+4. **Build intelligent applications using SAP data and AI technologies**: Through guided exercises, participants will develop AI-powered applications that interact with SAP data. These intelligent applications may include predictive analytics, automated recommendations, or advanced analytics dashboards. The goal is to demonstrate how AI can deliver meaningful insights and value to business processes using SAP as the data foundation.
 
-5. **Explore practical use cases for enhancing business processes and decision-making with AI**:
-   - The lab will provide real-world examples and use cases where AI has been successfully applied to improve operational efficiency, customer experience, supply chain management, and other business areas. These practical examples will help participants understand how to apply the concepts learned in real-life SAP scenarios.
+5. **Explore practical use cases for enhancing business processes and decision-making with AI**: The lab will provide real-world examples and use cases where AI has been successfully applied to improve operational efficiency, customer experience, supply chain management, and other business areas. These practical examples will help participants understand how to apply the concepts learned in real-life SAP scenarios.
 
-6. **Develop skills to innovate and optimize enterprise operations through SAP's data and AI integration**:
-   - By the end of the lab, users will have the technical know-how to implement AI-driven innovations within SAP environments. They will learn how to optimize enterprise workflows, reduce manual tasks, and enhance operational efficiency by leveraging the combined power of SAP’s robust data systems and advanced AI technologies. This will equip participants to lead AI-powered transformation projects in their organizations.
+6. **Develop skills to innovate and optimize enterprise operations through SAP's data and AI integration**: By the end of the lab, users will have the technical know-how to implement AI-driven innovations within SAP environments. They will learn how to optimize enterprise workflows, reduce manual tasks, and enhance operational efficiency by leveraging the combined power of SAP’s robust data systems and advanced AI technologies. This will equip participants to lead AI-powered transformation projects in their organizations.
 
 ## Prerequisites 
 
@@ -49,22 +43,15 @@ Basic knowledge and understanding of the following
 
 ## Explanation of Components 
 
-### Pre-requisites for the Lab (Elaborated):
+1. **Basic Knowledge of SAP Systems**: Participants should have a foundational understanding of SAP’s core products and platforms, such as **SAP S/4HANA**, **SAP BW**, or **SAP HANA**. This includes familiarity with SAP’s data models, business process integration, and how SAP systems manage and store enterprise data. Prior experience working with SAP’s ERP modules, as well as basic concepts like tables, transactions, and reports, will help participants navigate SAP environments during the lab exercises.
 
-1. **Basic Knowledge of SAP Systems**:
-   - Participants should have a foundational understanding of SAP’s core products and platforms, such as **SAP S/4HANA**, **SAP BW**, or **SAP HANA**. This includes familiarity with SAP’s data models, business process integration, and how SAP systems manage and store enterprise data. Prior experience working with SAP’s ERP modules, as well as basic concepts like tables, transactions, and reports, will help participants navigate SAP environments during the lab exercises.
+2. **Azure Synapse**: is a powerful data integration and analytics service. Participants should have a basic understanding of its key components, including data integration (through Synapse Pipelines), data warehousing (using SQL Pools), and real-time analytics. The lab may involve extracting data from SAP systems and integrating it into **Azure Synapse** for large-scale data analytics and processing. Experience with SQL and working knowledge of connecting external data sources to Synapse will be beneficial.
 
-2. **Azure Synapse**:
-   - **Azure Synapse Analytics** is a powerful data integration and analytics service. Participants should have a basic understanding of its key components, including data integration (through Synapse Pipelines), data warehousing (using SQL Pools), and real-time analytics. The lab may involve extracting data from SAP systems and integrating it into **Azure Synapse** for large-scale data analytics and processing. Experience with SQL and working knowledge of connecting external data sources to Synapse will be beneficial.
+3. **Power BI**: is a data visualization and business intelligence tool. Participants should know how to use Power BI to create reports and dashboards by connecting to SAP data sources and other data sets. This lab may involve building interactive visualizations and dashboards based on the data extracted from SAP systems and analyzed through AI models. A basic understanding of Power BI’s workspace, DAX formulas, and data transformation capabilities will be helpful.
 
-3. **Power BI**:
-   - **Microsoft Power BI** is a data visualization and business intelligence tool. Participants should know how to use Power BI to create reports and dashboards by connecting to SAP data sources and other data sets. This lab may involve building interactive visualizations and dashboards based on the data extracted from SAP systems and analyzed through AI models. A basic understanding of Power BI’s workspace, DAX formulas, and data transformation capabilities will be helpful.
+4. **Azure Machine Learning** is a cloud-based platform that provides tools for building, training, and deploying machine learning models. Participants should have a basic understanding of AI and machine learning concepts, such as supervised and unsupervised learning, model training, and evaluation. Familiarity with **Azure Machine Learning** will allow participants to integrate AI models with SAP data for predictive analytics, automation, or decision-making processes within SAP systems. Experience with setting up Azure ML workspaces, using Jupyter notebooks, or deploying models in Azure will be advantageous.
 
-4. **Azure Machine Learning**:
-   - **Azure Machine Learning** is a cloud-based platform that provides tools for building, training, and deploying machine learning models. Participants should have a basic understanding of AI and machine learning concepts, such as supervised and unsupervised learning, model training, and evaluation. Familiarity with **Azure Machine Learning** will allow participants to integrate AI models with SAP data for predictive analytics, automation, or decision-making processes within SAP systems. Experience with setting up Azure ML workspaces, using Jupyter notebooks, or deploying models in Azure will be advantageous.
-
-5. **Azure Cosmos DB**:
-   - **Azure Cosmos DB** is a globally distributed, multi-model database service. Participants should have a basic understanding of how **Cosmos DB** works, especially its NoSQL architecture, partitioning, and querying data using SQL-like syntax. The lab may involve storing and managing SAP-related unstructured or semi-structured data in **Azure Cosmos DB** to support scalable, high-performance applications that integrate AI-driven insights into business processes. Familiarity with working on Cosmos DB’s APIs (such as SQL, MongoDB, or Cassandra) and its integration with AI services is beneficial.
+5. **Azure Cosmos DB**: is a globally distributed, multi-model database service. Participants should have a basic understanding of how **Cosmos DB** works, especially its NoSQL architecture, partitioning, and querying data using SQL-like syntax. The lab may involve storing and managing SAP-related unstructured or semi-structured data in **Azure Cosmos DB** to support scalable, high-performance applications that integrate AI-driven insights into business processes. Familiarity with working on Cosmos DB’s APIs (such as SQL, MongoDB, or Cassandra) and its integration with AI services is beneficial.
 
 # Getting Started
  
