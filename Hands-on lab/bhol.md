@@ -44,7 +44,6 @@ In this task, you will create an SAP Cloud Appliance by registering a new accoun
     - **First Name**: odluser
     - **Last Name**: <inject key="DeploymentID" enableCopy="false"></inject>
     - **Email**: <inject key="AzureAdUserEmail"></inject>
-    - **Phone**: Enter any random number
     - **Country**: United States
     - Select **Continue**
     - **Company**: Microsoft
@@ -62,6 +61,8 @@ In this task, you will create an SAP Cloud Appliance by registering a new accoun
 1. It will open the new page, on the **Account Successfully Activated** page, select **Continue**.
 
 1. On the **Terms and Conditions** screen, read the conditions of the 30-day trial license, and select the **I Accept** button to continue.
+
+    ![](./media/updatedimg1.png)
 
 1. On the SAP Cloud Appliance Library from the left navigation pane select **Appliance Templates (1)** screen, search for and locate the **SAP S/4HANA 2023, Fully-Activated Appliance (2)** item, and select the **Create Appliance** button in the search results.
 
@@ -479,7 +480,11 @@ A service is available that allows for the update of a Business Partner record. 
 
         >**Note:** Select **Open** on the pop-up.
 
-1. Open Postman on your local machine and select **Import** from the Workspace toolbar to import a collection.
+1. Open Postman on your local machine and provide **Your name** as **odluser<inject key="DeploymentID" enableCopy="false"/>** **(1)** and select any of the role from the list (2). Click on **Continue (3)**.
+
+    ![](./media/updatedimg2.png)
+
+1. In the main pane select **Import** from the Workspace toolbar to import a collection.
 
     ![The Postman interface displays with the Import button highlighted.](media/pm_importcollection.png "Import Collection")
 
@@ -536,16 +541,16 @@ In this task, you will create linked services in Azure Synapse Analytics for Azu
 
     ![The New linked service blade displays with the Azure Data Lake Storage Gen2 item highlighted.](media/ss_newlinkedsvc_adlsgen2search.png "New ADLS Gen2 Linked service")  
 
-7. In the New linked service - Azure Data Lake Storage Gen2 form, fill it in as follows and select **Create**. Unspecified fields retain their default values.
+7. In the New linked service - Azure Data Lake Storage Gen2 form, fill it in as follows and select **Create (5)**. Unspecified fields retain their default values.
 
     | Field | Value |
     |-------|-------|
-    | Name | Enter `datalake` |
-    | Authentication type | Select **System-assigned managed identity** |
-    | Azure subscription | Select your Azure subscription |
-    | Storage account name | Select **sapadls{SUFFIX}** |
+    | Name | Enter `datalake` **(1)** |
+    | Authentication type | Select **System-assigned managed identity** **(2)** |
+    | Azure subscription | Select your Azure subscription **(3)** |
+    | Storage account name | Select **sapadls{SUFFIX}** **(4)** |
 
-    ![The New Linked service form for ADLS Gen2 displays populated with the preceding values.](media/ss_newlinkedservice_adlsgen2_form(1).png "New ADLS Gen2 Linked service form")
+    ![The New Linked service form for ADLS Gen2 displays populated with the preceding values.](media/updatedimg3.png "New ADLS Gen2 Linked service form")
 
 8. On the Linked services screen, select **+ New** from the toolbar menu. On the New Linked service blade search for and select **Azure Cosmos DB for NoSQL**. Select **Continue**.
 
@@ -646,7 +651,7 @@ The source data is payment data that is located in Azure Data Lake Storage Gen2 
 
     ![Synapse Studio displays with the Monitor hub selected from the left menu, the Pipeline runs selected in the center panel, and the payment pipeline listed as in progress. The Refresh button is highlighted.](media/ss_monitorpaymentspipeline.png "Monitor hub")
 
-9. Verify the data by returning to the Azure Portal, opening the **sap-mcw-cosmos-{SUFFIX}** resource group, then locating and opening the **sap-mcw-cosmos-{SUFFIX}** Cosmos DB resource.
+9. Verify the data by returning to the Azure Portal, opening the **mcw_sap_plus_extend_and_innovate** resource group, then locating and opening the **sap-mcw-cosmos-{SUFFIX}** Cosmos DB resource.
 
 10. On the Azure Cosmos DB account screen, select **Data Explorer** from the left menu. In the SQL API panel, expand the **SAPS4D** and **paymentData**. Select **Items** tab. This will display the contents of the selected document for review.
 
