@@ -628,3 +628,6 @@ The source data is payment data that is located in Azure Data Lake Storage Gen2 
     ![The Azure Cosmos DB account screen displays with the Data Explorer item highlighted in the left menu. In the SQL API pane, the SAPS4D database is expanded along with the paymentData collection. The items option is selected beneath the collection. One document is highlighted in the paymentData tab and the screen displays the selected document's content.](media/portal_cosmosdb_paymentdatapreview.png "View document in Cosmos DB")
 
 You should follow all steps provided *before* performing the Hands-on lab.
+
+
+## Select **Next >>** to proceed to the next exercise.
