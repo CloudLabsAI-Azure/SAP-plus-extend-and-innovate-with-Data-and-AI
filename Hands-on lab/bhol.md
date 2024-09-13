@@ -2,7 +2,24 @@
 
 ## Estimated timing: 180 minutes
 
+## Overview
+
+In this lab, you will set up a data integration workflow in Azure Synapse Analytics. First, you'll create linked services to connect to Azure Data Lake Storage Gen2 and Azure Cosmos DB for NoSQL. Next, you'll define integration datasets to represent the source CSV data and the target Cosmos DB collection. Using these datasets, you'll build a pipeline to transfer data from the CSV file into Cosmos DB. After configuring the pipeline, you'll publish and trigger it to execute the data transfer, ensuring successful data migration and verification through the Azure Cosmos DB Data Explorer.
+
+## Objectives
+
+After completing this lab, you will be able to :
+
+- Obtain the desired Azure Subscription ID value
+- Create an SAP Cloud Appliance
+- Deploy the Azure Resources
+- Prepare sales data in SAP
+- Prepare the business partner service in SAP
+- Prepare payment data in Cosmos DB
+
 ### Task 1: Obtain the desired Azure Subscription ID value
+
+In this task, you will obtain the Azure Subscription ID value needed to configure and deploy resources in your Azure environment.
 
 1. In the top toolbar, search for and select **Subscriptions**.
 
@@ -13,6 +30,8 @@
     ![The Subscriptions screen displays with the Subscription ID value copied from a list of subscriptions.](media/subscriptions(1).png "Azure Subscriptions")
 
 ### Task 2: Create an SAP Cloud Appliance
+
+In this task, you will create an SAP Cloud Appliance by registering a new account on the SAP Cloud Appliance Library, configuring the necessary settings, and deploying an SAP S/4HANA 2023 fully-activated appliance on Microsoft Azure.
 
 1. Using an internet browser, open the [SAP Cloud Appliance Library](https://cal.sap.com/) website.
 
@@ -25,7 +44,6 @@
     - **First Name**: odluser
     - **Last Name**: <inject key="DeploymentID" enableCopy="false"></inject>
     - **Email**: <inject key="AzureAdUserEmail"></inject>
-    - **Phone**: Enter any random number
     - **Country**: United States
     - Select **Continue**
     - **Company**: Microsoft
@@ -43,6 +61,8 @@
 1. It will open the new page, on the **Account Successfully Activated** page, select **Continue**.
 
 1. On the **Terms and Conditions** screen, read the conditions of the 30-day trial license, and select the **I Accept** button to continue.
+
+    ![](./media/updatedimg1.png)
 
 1. On the SAP Cloud Appliance Library from the left navigation pane select **Appliance Templates (1)** screen, search for and locate the **SAP S/4HANA 2023, Fully-Activated Appliance (2)** item, and select the **Create Appliance** button in the search results.
 
@@ -90,6 +110,8 @@
     ![The MCW SAP instance displays with a status of Active.](media/active.png "SAP CAL Instance listing")
 
 ### Task 3: Deploy the Azure Resources
+
+In this task, you will deploy the required Azure resources using Terraform Infrastructure as Code by running commands in Azure Cloud Shell with the PowerShell environment.
 
 This lab utilizes Terraform Infrastructure as Code to deploy the necessary Azure resources.
 
@@ -146,6 +168,8 @@ This lab utilizes Terraform Infrastructure as Code to deploy the necessary Azure
 1. Close the Cloud Shell panel if desired.
 
 ### Task 4: Prepare sales data in SAP
+
+In this task, you will create a sales view in SAP, expose it as an OData service, and enable consumption by external services. The process includes connecting to your SAP instance via the SAP Cloud Appliance Library, using SAP Development Tools for Eclipse to define and activate the sales view, and configuring the OData service in SAP GUI.
 
 This task demonstrates creating a sales view in SAP and exposing it as an OData service for consumption by external services.
 
@@ -368,6 +392,8 @@ This task demonstrates creating a sales view in SAP and exposing it as an OData 
 
 ### Task 5: Prepare the business partner service in SAP
 
+In this task, you'll update a Business Partner record in SAP to ensure the company name matches the imported Sales data. This involves activating and maintaining the relevant service in SAP, accessing the SAP Gateway Client to retrieve data, and using Postman to update the company name of a Business Partner record.
+
 A service is available that allows for the update of a Business Partner record. A Business Partner record is where non-paying entities are flagged in the system. This service does not have company names that match what is imported from the Sales data. This task updates the company name of a record in SAP for use in the lab.
 
 1. In the SAP UI, access the Activate and Maintain Service transaction by typing `/n/IWFND/MAINT_SERVICE` in the toolbar menu transaction combo box and press <kbd>Enter</kbd>. This opens the **Activate and Maintain Services** window.
@@ -454,7 +480,11 @@ A service is available that allows for the update of a Business Partner record. 
 
         >**Note:** Select **Open** on the pop-up.
 
-1. Open Postman on your local machine and select **Import** from the Workspace toolbar to import a collection.
+1. Open Postman on your local machine and provide **Your name** as **odluser<inject key="DeploymentID" enableCopy="false"/>** **(1)** and select any of the role from the list (2). Click on **Continue (3)**.
+
+    ![](./media/updatedimg2.png)
+
+1. In the main pane select **Import** from the Workspace toolbar to import a collection.
 
     ![The Postman interface displays with the Import button highlighted.](media/pm_importcollection.png "Import Collection")
 
@@ -485,7 +515,9 @@ A service is available that allows for the update of a Business Partner record. 
 
 ### Task 6: Prepare payment data in Cosmos DB
 
-Raw payment data is available in Azure Data Lake storage. This exercise walks through loading raw payment data into Cosmos DB by leveraging Azure Synapse Analytics. First, linked services are created, these act as the connection strings to external compute resources. Next, integration datasets are created, these indicate the location and shape of the data being used in the migration. Finally, a pipeline is created to orchestrate moving data from Azure Data Lake Storage Gen2 to Cosmos DB.
+Raw payment data is available in Azure Data Lake storage. This task walks through loading raw payment data into Cosmos DB by leveraging Azure Synapse Analytics. First, linked services are created, these act as the connection strings to external compute resources. Next, integration datasets are created, these indicate the location and shape of the data being used in the migration. Finally, a pipeline is created to orchestrate moving data from Azure Data Lake Storage Gen2 to Cosmos DB.
+
+In this task, you will create linked services in Azure Synapse Analytics for Azure Data Lake Storage Gen2 and Azure Cosmos DB for NoSQL. You'll then define integration datasets to represent your source (CSV data) and sink (Cosmos DB collection). Finally, you'll build a pipeline to transfer data from the CSV file to Cosmos DB, publish the pipeline, and trigger it to run.
 
 #### Step 1: Create linked services in Azure Synapse Analytics
 
@@ -509,16 +541,16 @@ Raw payment data is available in Azure Data Lake storage. This exercise walks th
 
     ![The New linked service blade displays with the Azure Data Lake Storage Gen2 item highlighted.](media/ss_newlinkedsvc_adlsgen2search.png "New ADLS Gen2 Linked service")  
 
-7. In the New linked service - Azure Data Lake Storage Gen2 form, fill it in as follows and select **Create**. Unspecified fields retain their default values.
+7. In the New linked service - Azure Data Lake Storage Gen2 form, fill it in as follows and select **Create (5)**. Unspecified fields retain their default values.
 
     | Field | Value |
     |-------|-------|
-    | Name | Enter `datalake` |
-    | Authentication type | Select **System-assigned managed identity** |
-    | Azure subscription | Select your Azure subscription |
-    | Storage account name | Select **sapadls{SUFFIX}** |
+    | Name | Enter `datalake` **(1)** |
+    | Authentication type | Select **System-assigned managed identity** **(2)** |
+    | Azure subscription | Select your Azure subscription **(3)** |
+    | Storage account name | Select **sapadls{SUFFIX}** **(4)** |
 
-    ![The New Linked service form for ADLS Gen2 displays populated with the preceding values.](media/ss_newlinkedservice_adlsgen2_form(1).png "New ADLS Gen2 Linked service form")
+    ![The New Linked service form for ADLS Gen2 displays populated with the preceding values.](media/updatedimg3.png "New ADLS Gen2 Linked service form")
 
 8. On the Linked services screen, select **+ New** from the toolbar menu. On the New Linked service blade search for and select **Azure Cosmos DB for NoSQL**. Select **Continue**.
 
@@ -619,7 +651,7 @@ The source data is payment data that is located in Azure Data Lake Storage Gen2 
 
     ![Synapse Studio displays with the Monitor hub selected from the left menu, the Pipeline runs selected in the center panel, and the payment pipeline listed as in progress. The Refresh button is highlighted.](media/ss_monitorpaymentspipeline.png "Monitor hub")
 
-9. Verify the data by returning to the Azure Portal, opening the **sap-mcw-cosmos-{SUFFIX}** resource group, then locating and opening the **sap-mcw-cosmos-{SUFFIX}** Cosmos DB resource.
+9. Verify the data by returning to the Azure Portal, opening the **mcw_sap_plus_extend_and_innovate** resource group, then locating and opening the **sap-mcw-cosmos-{SUFFIX}** Cosmos DB resource.
 
 10. On the Azure Cosmos DB account screen, select **Data Explorer** from the left menu. In the SQL API panel, expand the **SAPS4D** and **paymentData**. Select **Items** tab. This will display the contents of the selected document for review.
 
@@ -627,5 +659,8 @@ The source data is payment data that is located in Azure Data Lake Storage Gen2 
 
 You should follow all steps provided *before* performing the Hands-on lab.
 
+## Summary
+
+In this lab, you configured data integration in Azure Synapse Analytics by creating linked services for Azure Data Lake Storage Gen2 and Azure Cosmos DB. You set up integration datasets for the source CSV file and the Cosmos DB target collection. A pipeline was created to move data from the CSV file into Cosmos DB. After setting up and publishing the pipeline, you triggered it to run and monitored the data transfer, verifying the results in Azure Cosmos DB.
 
 ## You have successfully completed this exercise. Select **Next >>** to proceed to the next one.
