@@ -1,8 +1,6 @@
-# SAP plus extend and innovate with Data and AI before the hands-on lab setup guide
+# Before the hands-on lab
 
-## Before the hands-on lab
-
-Duration: 3 - 4 hours
+## Estimated timing: 180 minutes
 
 ### Task 1: Obtain the desired Azure Subscription ID value
 
@@ -630,4 +628,4 @@ The source data is payment data that is located in Azure Data Lake Storage Gen2 
 You should follow all steps provided *before* performing the Hands-on lab.
 
 
-## Select **Next >>** to proceed to the next exercise.
+## You have successfully completed this exercise. Select **Next >>** to proceed to the next one.
