@@ -157,7 +157,7 @@
 	"variable": [
 		{
 			"key": "ip-address",
-			"value": "<ENTER MCWSAP-SAP1 IP>",
+			"value": "<ENTER MSSAP-SAP1 IP>",
 			"type": "string"
 		},
 		{

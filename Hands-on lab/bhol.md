@@ -163,7 +163,7 @@ This lab utilizes Terraform Infrastructure as Code to deploy the necessary Azure
     terraform apply
     ```
 
-    >**Note:** Wait for the script to get finished.
+    >**Note:** Wait for the script to finish; it will take approximately 10-15 minutes. If there are any errors, please ignore them and proceed with the lab.
 
 1. Close the Cloud Shell panel if desired.
 
