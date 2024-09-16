@@ -17,7 +17,7 @@ resource "azurerm_storage_account" "adlsaccount" {
 #######################################################################
 
 resource "azurerm_storage_data_lake_gen2_filesystem" "adls" {
-  name               = "sap-mcw-adls"
+  name               = "sap-adls"
   storage_account_id = azurerm_storage_account.adlsaccount.id
 }
 

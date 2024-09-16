@@ -107,7 +107,7 @@ In this task, you will create an SAP Cloud Appliance by registering a new accoun
 
 1. The deployment  will take approximately 90 minutes. The status will update on the Instances screen. Once complete, the status will indicate **Active**.
 
-    ![The MCW SAP instance displays with a status of Active.](media/active.png "SAP CAL Instance listing")
+    ![The SAP instance displays with a status of Active.](media/active.png "SAP CAL Instance listing")
 
 ### Task 3: Deploy the Azure Resources
 
@@ -175,7 +175,7 @@ This task demonstrates creating a sales view in SAP and exposing it as an OData 
 
 1. On the SAP Cloud Appliance Library Instances page, select the **Connect** button on the **SAP** row.
 
-    ![The SAP CAL instances listing displays with the Connect button highlighted next to the MCW SAP item.](media/connect.png "Connect to SAP Instance")
+    ![The SAP CAL instances listing displays with the Connect button highlighted next to the SAP item.](media/connect.png "Connect to SAP Instance")
 
 2. On the **Connect to the instance** dialog, select the **Connect** link on the RDP row. This will download an RDP file.
 
@@ -459,11 +459,11 @@ A service is available that allows for the update of a Business Partner record. 
 
 1. Next, obtain the IP Address for the MSSAP-SAP1 virtual machine. In the [Azure Portal](https://portal.azure.com), enter `MSSAP-SAP1` (1) in the search box located in the top toolbar and select the **MSSAP-SAP1 (2)** virtual machine from the filtered list of resources.
 
-    ![The Azure Portal toolbar search box displays with MCWSAP-SAP1 text and the MCWSAP-SAP1 virtual machine resource selected.](media/virtualmachinesap.png "Search for VM")
+    ![The Azure Portal toolbar search box displays with MSSAP-SAP1 text and the MSSAP-SAP1 virtual machine resource selected.](media/virtualmachinesap.png "Search for VM")
 
 1. On the **MSSAP-SAP1** virtual machine Overview screen, copy the IP address and record it for future use.
 
-    ![The MCWSAP-SAP1 Virtual machine screen displays with the Public IP address highlighted.](media/publicip.png "MCWSAP-SAP1 Virtual Machine Overview")
+    ![The MSSAP-SAP1 Virtual machine screen displays with the Public IP address highlighted.](media/publicip.png "MSSAP-SAP1 Virtual Machine Overview")
 
     >**Note**: This IP address can change, it does not have a static IP. Please obtain the current IP address.
 
@@ -491,19 +491,19 @@ A service is available that allows for the update of a Business Partner record. 
 1. On the Import dialog, then enter the following URL.
 
     ```text
-    https://raw.githubusercontent.com/CloudLabsAI-Azure/SAP-plus-extend-and-innovate-with-Data-and-AI/MS-Innovation/Hands-on%20lab/Resources/postman/SAP%20MCW.postman_collection.json
+    https://raw.githubusercontent.com/CloudLabsAI-Azure/SAP-plus-extend-and-innovate-with-Data-and-AI/MS-Innovation/Hands-on%20lab/Resources/postman/SAP.postman_collection.json
     ```
 
 
-1. In the Postman Collections list, select the **SAP MCW (1)** collection. Select the **Variables (2)** tab and enter the MCWSAP-SAP1 IP address in the **INITIAL VALUE (3)** and **CURRENT VALUE (4)** column. Select **Save (5)** on the collection.
+1. In the Postman Collections list, select the **SAP(1)** collection. Select the **Variables (2)** tab and enter the MSSAP-SAP1 IP address in the **INITIAL VALUE (3)** and **CURRENT VALUE (4)** column. Select **Save (5)** on the collection.
 
-    ![The Variables for the SAP MCW collection displays with the initial value and current value set to an IP address. The Save button is highlighted.](media/pm_enteripvarsincollection.png "Set ip-address values")
+    ![The Variables for the SAP collection displays with the initial value and current value set to an IP address. The Save button is highlighted.](media/pm_enteripvarsincollection.png "Set ip-address values")
 
-1. Expand the SAP MCW Collection and select the **GET Company** request. Select **Send**. Notice how the CompanyName is currently **Office Line Prag**.
+1. Expand the SAP Collection and select the **GET Company** request. Select **Send**. Notice how the CompanyName is currently **Office Line Prag**.
 
-    ![The SAP MCW Collection is expanded with the GET Company request selected. The Send button is highlighted. The CompanyName of Office Line Prag is highlighted in the response.](media/pm_get_officelineprag.png "Get Company Request - Office Line Prag Company Name")
+    ![The SAP Collection is expanded with the GET Company request selected. The Send button is highlighted. The CompanyName of Office Line Prag is highlighted in the response.](media/pm_get_officelineprag.png "Get Company Request - Office Line Prag Company Name")
 
-1. In the SAP MCW Collection, select the **Patch Company** request and select **Send**. The response should show the status of **204 No Content**.
+1. In the SAP Collection, select the **Patch Company** request and select **Send**. The response should show the status of **204 No Content**.
 
     ![The Patch Company request displays with the Send button highlighted. The status indicates 204 No Content.](media/pm_patchcompanyname.png "PATCH company")
 
@@ -521,7 +521,7 @@ In this task, you will create linked services in Azure Synapse Analytics for Azu
 
 #### Step 1: Create linked services in Azure Synapse Analytics
 
-1. Navigate to the [Azure Portal](https://portal.azure.com), open the **mcw_sap_plus_extend_and_innovate** resource group.
+1. Navigate to the [Azure Portal](https://portal.azure.com), open the **sap_plus_extend_and_innovate** resource group.
 
 2. From the list of resources, locate and select the Synapse Workspace item named **sapdatasynws{SUFFIX}**.
 
@@ -563,7 +563,7 @@ In this task, you will create linked services in Azure Synapse Analytics for Azu
     | Name | Enter `payment_data_cosmosdb` |
     | Authentication type | Select **Account key** |
     | Azure subscription | Select your Azure subscription |
-    | Azure Cosmos DB account name | Select **sap-mcw-cosmos-{SUFFIX}** |
+    | Azure Cosmos DB account name | Select **sap-cosmos-{SUFFIX}** |
     | Database name | Select **SAPS4D** |
 
     ![The new Linked service form for Cosmos DB displays populated with the preceding values.](media/ss_newlinkedservice_cosmosdb_form(1).png "New Cosmos DB Linked service form")
@@ -651,7 +651,7 @@ The source data is payment data that is located in Azure Data Lake Storage Gen2 
 
     ![Synapse Studio displays with the Monitor hub selected from the left menu, the Pipeline runs selected in the center panel, and the payment pipeline listed as in progress. The Refresh button is highlighted.](media/ss_monitorpaymentspipeline.png "Monitor hub")
 
-9. Verify the data by returning to the Azure Portal, opening the **mcw_sap_plus_extend_and_innovate** resource group, then locating and opening the **sap-mcw-cosmos-{SUFFIX}** Cosmos DB resource.
+9. Verify the data by returning to the Azure Portal, opening the **sap_plus_extend_and_innovate** resource group, then locating and opening the **sap-cosmos-{SUFFIX}** Cosmos DB resource.
 
 10. On the Azure Cosmos DB account screen, select **Data Explorer** from the left menu. In the SQL API panel, expand the **SAPS4D** and **paymentData**. Select **Items** tab. This will display the contents of the selected document for review.
 

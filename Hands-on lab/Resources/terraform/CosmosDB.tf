@@ -3,7 +3,7 @@
 #######################################################################
 
 resource "azurerm_cosmosdb_account" "cosmos" {
-  name                      = "sap-mcw-cosmos-${local.suffix}"
+  name                      = "sap-cosmos-${local.suffix}"
   resource_group_name       = azurerm_resource_group.rg.name
   location                  = azurerm_resource_group.rg.location
   offer_type                = "Standard"

@@ -3,7 +3,7 @@
 #######################################################################
 
 resource "azurerm_application_insights" "insights" {
-  name                = "sap-mcw-insights"
+  name                = "sap-insights"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   application_type    = "web"
@@ -26,7 +26,7 @@ resource "azurerm_storage_account" "blobaccount" {
 #######################################################################
 
 resource "azurerm_machine_learning_workspace" "mlws" {
-  name                    = "sap-mcw-ml-ws"
+  name                    = "sap-ml-ws"
   resource_group_name     = azurerm_resource_group.rg.name
   location                = azurerm_resource_group.rg.location
   application_insights_id = azurerm_application_insights.insights.id
