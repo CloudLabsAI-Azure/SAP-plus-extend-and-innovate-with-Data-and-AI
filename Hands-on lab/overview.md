@@ -1,4 +1,4 @@
-# SAP plus extend and innovate with Data and AI hands-on lab step-by-step
+# SAP plus extend and innovate with Data and AI
 
 ## Overview 
 
@@ -43,7 +43,7 @@ Basic knowledge and understanding of the following
 
 ## Explanation of Components 
 
-1. **Basic Knowledge of SAP Systems**: Participants should have a foundational understanding of SAP’s core products and platforms, such as **SAP S/4HANA**, **SAP BW**, or **SAP HANA**. This includes familiarity with SAP’s data models, business process integration, and how SAP systems manage and store enterprise data. Prior experience working with SAP’s ERP modules, as well as basic concepts like tables, transactions, and reports, will help participants navigate SAP environments during the lab exercises.
+1. **SAP S/4HANA**: Participants should have a foundational understanding of enterprise resource planning (ERP) systems and a basic familiarity with data management concepts to fully grasp SAP S/4HANA. This integrated ERP suite is designed to streamline business processes by utilizing the advanced in-memory computing power of SAP HANA. It covers key business functions such as finance, supply chain, and manufacturing, offering real-time insights and enhanced efficiency. With its modern, intuitive interface and robust analytics capabilities, SAP S/4HANA supports digital transformation and agile decision-making, enabling organizations to adapt swiftly to evolving market demands and improve overall operational effectiveness.
 
 2. **Azure Synapse**: is a powerful data integration and analytics service. Participants should have a basic understanding of its key components, including data integration (through Synapse Pipelines), data warehousing (using SQL Pools), and real-time analytics. The lab may involve extracting data from SAP systems and integrating it into **Azure Synapse** for large-scale data analytics and processing. Experience with SQL and working knowledge of connecting external data sources to Synapse will be beneficial.
 
@@ -52,6 +52,8 @@ Basic knowledge and understanding of the following
 4. **Azure Machine Learning** is a cloud-based platform that provides tools for building, training, and deploying machine learning models. Participants should have a basic understanding of AI and machine learning concepts, such as supervised and unsupervised learning, model training, and evaluation. Familiarity with **Azure Machine Learning** will allow participants to integrate AI models with SAP data for predictive analytics, automation, or decision-making processes within SAP systems. Experience with setting up Azure ML workspaces, using Jupyter notebooks, or deploying models in Azure will be advantageous.
 
 5. **Azure Cosmos DB**: is a globally distributed, multi-model database service. Participants should have a basic understanding of how **Cosmos DB** works, especially its NoSQL architecture, partitioning, and querying data using SQL-like syntax. The lab may involve storing and managing SAP-related unstructured or semi-structured data in **Azure Cosmos DB** to support scalable, high-performance applications that integrate AI-driven insights into business processes. Familiarity with working on Cosmos DB’s APIs (such as SQL, MongoDB, or Cassandra) and its integration with AI services is beneficial.
+
+6. **Power Automate**: Participants should have a basic understanding of workflow automation and process optimization to effectively utilize Power Automate. This cloud-based service from Microsoft enables users to automate repetitive tasks and streamline processes across various applications and services without requiring extensive coding knowledge. By connecting disparate systems through pre-built or custom workflows, Power Automate helps integrate data, manage approvals, and trigger actions based on specific conditions. Its user-friendly interface and extensive library of connectors facilitate seamless automation, enhancing productivity and efficiency by allowing users to focus on higher-value tasks and ensuring consistent execution of routine processes.
 
 # Getting Started
  

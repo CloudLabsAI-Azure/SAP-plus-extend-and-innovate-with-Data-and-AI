@@ -1,6 +1,6 @@
 # Before the hands-on lab
 
-## Estimated timing: 180 minutes
+## Estimated Duration: 180 minutes
 
 ## Overview
 
@@ -130,7 +130,7 @@ This lab utilizes Terraform Infrastructure as Code to deploy the necessary Azure
 1. In the Cloud Shell pane, ensure the PowerShell language is selected. Clone the source code repository by issuing the following command.
 
     ```PowerShell
-    git clone https://github.com/CloudLabsAI-Azure/SAP-plus-extend-and-innovate-with-Data-and-AI.git
+    git clone --branch MS-Innovation --single-branch https://github.com/CloudLabsAI-Azure/SAP-plus-extend-and-innovate-with-Data-and-AI
     ```
 
 1. Navigate to the Terraform directory by executing the following command:
