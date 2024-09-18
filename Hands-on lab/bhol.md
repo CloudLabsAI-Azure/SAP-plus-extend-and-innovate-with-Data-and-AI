@@ -1,21 +1,21 @@
 # Before the hands-on lab
 
-## Estimated Duration: 180 minutes
+## Estimated Duration: 150 minutes
 
 ## Overview
 
-In this lab, you will set up a data integration workflow in Azure Synapse Analytics. First, you'll create linked services to connect to Azure Data Lake Storage Gen2 and Azure Cosmos DB for NoSQL. Next, you'll define integration datasets to represent the source CSV data and the target Cosmos DB collection. Using these datasets, you'll build a pipeline to transfer data from the CSV file into Cosmos DB. After configuring the pipeline, you'll publish and trigger it to execute the data transfer, ensuring successful data migration and verification through the Azure Cosmos DB Data Explorer.
+In this lab, you'll set up a comprehensive data integration workflow in Azure Synapse Analytics, enabling seamless data transfer between Azure Data Lake Storage Gen2 and Azure Cosmos DB for NoSQL. The process begins with the creation of linked services that establish secure connections to both Azure Data Lake Storage Gen2, where the source CSV file resides, and Azure Cosmos DB, which will store the migrated data. After the connections are set up, you'll define integration datasets, representing the structure of the source CSV data and the destination Cosmos DB collection. These datasets will serve as the foundation for building a data pipeline that facilitates the transfer of records from the CSV file into Cosmos DB. Once the pipeline is fully configured, you'll publish and trigger it to execute the migration. Following the pipeline execution, you'll use the Azure Cosmos DB Data Explorer to verify the success of the data transfer, ensuring the records have been accurately moved and are available in the target database for further querying and analysis. This lab provides a hands-on experience in setting up an end-to-end data integration workflow in Azure Synapse Analytics.
 
-## Objectives
+## Lab Objectives
 
-After completing this lab, you will be able to :
+After completing this lab, you will be able to:
 
-- Obtain the desired Azure Subscription ID value
-- Create an SAP Cloud Appliance
-- Deploy the Azure Resources
-- Prepare sales data in SAP
-- Prepare the business partner service in SAP
-- Prepare payment data in Cosmos DB
+- Task 1: Obtain the desired Azure Subscription ID value
+- Task 2: Create an SAP Cloud Appliance
+- Task 3: Deploy the Azure Resources
+- Task 4: Prepare sales data in SAP
+- Task 5: Prepare the business partner service in SAP
+- Task 6: Prepare payment data in Cosmos DB
 
 ### Task 1: Obtain the desired Azure Subscription ID value
 
