@@ -1,6 +1,6 @@
 # Before the hands-on lab
 
-## Estimated Duration: 180 minutes
+## Estimated Duration: 150 minutes
 
 ## Overview
 
