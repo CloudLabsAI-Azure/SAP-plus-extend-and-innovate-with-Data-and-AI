@@ -1,5 +1,7 @@
 # SAP plus extend and innovate with Data and AI
 
+### Overall Estimated Duration: 8 Hours
+
 ## Overview 
 
 This lab is intended for developers and IT professionals looking to explore SAP's capabilities in extending and innovating with Data and AI. Participants will learn how to integrate SAP systems with AI-driven solutions, leveraging data to enhance business processes and decision-making. The hands-on lab will guide users step-by-step through connecting SAP to AI services, extracting and processing data, and building intelligent applications. Through practical exercises, users will gain insights into SAP’s integration with AI tools to drive innovation in enterprise operations.
